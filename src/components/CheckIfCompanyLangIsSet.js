@@ -13,7 +13,7 @@ const CheckIfCompanyLangIsSet = () => {
     React.useEffect(()=>{
 
         if(check && !check.value){
-            modal("common.set_language", <Box p={3}>
+            modal("resources.companydata.customfields.lang.name", <Box p={3}>
                 <ChangeCompanyLang />
             </Box>)
         }
