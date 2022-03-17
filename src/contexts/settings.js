@@ -21,7 +21,7 @@ export const useSettings = (path = null, fallback = undefined) => {
 }
 
 
-export const SettingsContext = ({data, children}) => {
+export const SettingsContext = ({data={}, children}) => {
     const [settings, setSettingsFunc] = React.useState(data)
     const setSettings = React.useCallback((test) => setSettingsFunc(test))
 
