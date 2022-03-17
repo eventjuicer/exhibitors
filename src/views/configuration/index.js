@@ -2,10 +2,7 @@ import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import {ChangeCompanyLang, Typography, Box} from '../../components'
-
-import {
-  Title,
-} from 'react-admin';
+import { Title} from 'react-admin';
 
 
 const Configuration = () => {
@@ -15,7 +12,7 @@ const Configuration = () => {
     <Card>
         <Title title="Configuration" />
         <CardContent>
-      <Typography label="pos.language" />
+      <Typography label="resources.companydata.customfields.lang.name" />
       <ChangeCompanyLang />
         </CardContent>
 
