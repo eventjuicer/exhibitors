@@ -9,7 +9,7 @@ import sagas from './redux/sagas';
 import reducers from './redux/reducers';
 import {getTheme} from './styles/muiTheme'
 import {ModalContext, SettingsContext, UserContext, CacheContext, useToken} from './contexts'
-import {Dialog, SvgDesaturate, UrlWatcher, SyncLocaleWithCompanyLang} from './components'
+import {Dialog, SvgDesaturate, UrlWatcher, CheckIfCompanyLangIsSet} from './components'
 import Logistics from './views/logistics'
 import resourcesArr from './resources'
 import settings from './settings'
@@ -19,12 +19,13 @@ const CustomLayout = (props) => {
 
   return (
     <ModalContext>
-
+    
+    <CheckIfCompanyLangIsSet />
 
     <Layout {...props} menu={CustomMenu} appBar={CustomAppBar} />
     <Dialog />
     <SvgDesaturate />
-
+  
     </ModalContext>
 
 
@@ -50,7 +51,7 @@ function App() {
       <UserContext>
         <CacheContext>
           <UrlWatcher /> 
-          <SyncLocaleWithCompanyLang />
+       
           <CustomAdminUI />
         </CacheContext>
       </UserContext>

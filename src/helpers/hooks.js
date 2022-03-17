@@ -1,14 +1,14 @@
 
 import React, {useContext, useCallback} from 'react'
 import { useLocale, DataProviderContext, useNotify, useRedirect, useRefresh } from 'react-admin'
-import {useSettings} from '../contexts'
+import {useSettings, useToken} from '../contexts'
 import { lsSet, lsGet } from './storage'
 import { useLocation } from 'react-router-dom' 
 import {validateToken} from './varia'
 // import FakeLink from '../components/FakeLink'
 // import Link from '../components/Link'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
-import { isString, isFunction } from 'lodash'
+import { isString, isFunction, get, isEmpty } from 'lodash'
 
 export const useIsMobile = (mobileBreakpoint="sm") => {
 
@@ -53,6 +53,19 @@ export const useDates = () => {
 
 }
 
+
+export const useCompanyLang = () => {
+
+  const token = useToken()
+  const {data} = useGet(token? "/companydata": null)
+
+  if(!token || isEmpty(data) ){
+    return undefined
+  }
+
+  return Array.isArray(data)? data.find(cd => cd.name == "lang"): {};
+
+}
 
 export const useGet = (path, usePublicApi=false) => {
 

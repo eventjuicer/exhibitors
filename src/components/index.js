@@ -52,7 +52,10 @@ export {default as ResourceTitle} from './ResourceTitle'
 
 export {default as ProfilePreviewButton} from './ProfilePreviewButton'
 export {default as ChangeLanguageButton} from './ChangeLanguageButton'
-export {default as SyncLocaleWithCompanyLang} from './SyncLocaleWithCompanyLang'
+export {default as CheckIfCompanyLangIsSet} from './CheckIfCompanyLangIsSet'
+export {default as ChangeCompanyLang} from './ChangeCompanyLang'
+
+
 
 export {default as Grid} from '@material-ui/core/Grid'
 export {default as Box} from '@material-ui/core/Box'
