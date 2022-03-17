@@ -28,6 +28,6 @@ export const useSetCache = () => {
 export const useCache = (name, replacement = undefined) => {
 
     const {items} = React.useContext(CacheContextContainer)
-    return name in items? items[name] : replacement
+    return items && name in items? items[name] : replacement
 
 }
