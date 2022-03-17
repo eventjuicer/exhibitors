@@ -54,6 +54,8 @@ export {default as ProfilePreviewButton} from './ProfilePreviewButton'
 export {default as ChangeLanguageButton} from './ChangeLanguageButton'
 export {default as CheckIfCompanyLangIsSet} from './CheckIfCompanyLangIsSet'
 export {default as ChangeCompanyLang} from './ChangeCompanyLang'
+export {default as Vercel} from './Vercel'
+export {default as Section} from './Section'
 
 
 
