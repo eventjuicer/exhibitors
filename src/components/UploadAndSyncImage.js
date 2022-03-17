@@ -16,9 +16,11 @@ const UploadableAvatar = ({size=150, variant="square", preview,...rest}) => {
 
       const [interacted, setInteracted] = React.useState(false)
       const modal = useSetModal()
-      const newImageSrc = usePusher("RestrictedImageUploaded", interacted)
+      const imageSrc = usePusher("RestrictedImageUploaded", interacted, function(data){
 
-      const imageSrc = newImageSrc || preview
+            return data && "value" in data && data.value.includes("https") ? data.value: preview            
+      })
+
       size = parseInt(size) || 150
       
       const handleClick = React.useCallback(() => {
