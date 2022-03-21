@@ -140,22 +140,24 @@ const CustomAccordionItem = ({
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const {search} = useLocation()
+  const myRef = React.useRef(null)
 
-  const handleChange = React.useCallback( (panel) =>  (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  });
-
+  const handleChange =  (panel) => (event, isExpanded) => setExpanded(isExpanded ? panel : false);
+  
   React.useEffect(() => {
 
     if(search){
       const label = get(items.find(item => search.includes(item.label)), "label", false)
       setExpanded(label)
+      if(label){
+        myRef.current.scrollIntoView()
+      }
     }
 
-  },[search])
+  },[search, items])
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} ref={myRef}>
     
       {items.map(item => <CustomAccordionItem 
           key={item.label} 
