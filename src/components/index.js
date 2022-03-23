@@ -56,6 +56,7 @@ export {default as CheckIfCompanyLangIsSet} from './CheckIfCompanyLangIsSet'
 export {default as ChangeCompanyLang} from './ChangeCompanyLang'
 export {default as Vercel} from './Vercel'
 export {default as Section} from './Section'
+export {default as ImageWithText} from './ImageWithText'
 
 
 

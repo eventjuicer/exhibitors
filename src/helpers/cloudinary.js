@@ -1,3 +1,52 @@
+
+
+import {createCloudinaryInstance} from '../api'
+import {scale, fill, crop} from "@cloudinary/url-gen/actions/resize";
+import {source} from "@cloudinary/url-gen/actions/overlay";
+import {Position} from "@cloudinary/url-gen/qualifiers/position";
+import {compass} from "@cloudinary/url-gen/qualifiers/gravity";
+import {image, text} from "@cloudinary/url-gen/qualifiers/source";
+import {TextStyle} from "@cloudinary/url-gen/qualifiers/textStyle";
+
+// import {focusOn} from "@cloudinary/url-gen/qualifiers/gravity";
+// import {FocusOn} from "@cloudinary/url-gen/qualifiers/focusOn";
+// import {vignette} from "@cloudinary/url-gen/actions/effect";
+// import {byRadius, max} from "@cloudinary/url-gen/actions/roundCorners";
+// import {saturation, hue} from "@cloudinary/url-gen/actions/adjust";
+// import {byAngle} from "@cloudinary/url-gen/actions/rotate"
+// import {Transformation} from "@cloudinary/url-gen";
+
+
+
+
+
+export const cloudinaryAddText = ({asset_id, content="test", height, width, format}) => {
+
+    const myImage = createCloudinaryInstance().image(asset_id);
+
+    myImage.overlay(
+    source(
+    text(content, new TextStyle('Arial',40)
+    .fontWeight('bold'))
+    .textColor('#000000')
+    )
+    .position(new Position().gravity(compass('center')).offsetX(-45).offsetY(44)) 
+    )
+
+    if(parseInt(height) && parseInt(width)){
+      myImage.resize(fill().width(width).height(height))
+    }
+
+    if(format){
+      myImage.format(format)
+    }
+
+    return myImage
+
+}
+
+
+
 export const resizeCloudinaryImage = (url, width = 600, height = 600, format = "jpg") => {
 
     //check if not already resized!
