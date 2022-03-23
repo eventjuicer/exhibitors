@@ -6,6 +6,7 @@ export {default as Dialog} from './Dialog'
 export {default as Button} from './Button'
 export {default as Alert} from './Alert'
 export {default as Avatar} from './Avatar'
+export {default as CardImage} from './CardImage'
 
 
 export {default as TicketPrice} from './TicketPrice'
@@ -57,7 +58,6 @@ export {default as ChangeCompanyLang} from './ChangeCompanyLang'
 export {default as Vercel} from './Vercel'
 export {default as Section} from './Section'
 export {default as ImageWithText} from './ImageWithText'
-
 
 
 export {default as Grid} from '@material-ui/core/Grid'
