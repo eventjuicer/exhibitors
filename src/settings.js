@@ -20,18 +20,68 @@ const settings = {
     event_id: 95, //89
     show_points: true,
 
-    banners: {
-      twitter: "https://res.cloudinary.com/eventjuicer/image/upload/v1647989029/teh21/teh_twitter.png",
-      linkedin: "https://res.cloudinary.com/eventjuicer/image/upload/v1647989029/teh21/teh_linkedin.png",
-      "468x60": "https://res.cloudinary.com/eventjuicer/image/upload/v1647989027/teh21/teh_banner_468x60.png",
-      "336x280": "https://res.cloudinary.com/eventjuicer/image/upload/v1647989027/teh21/teh_banner_336x280.png",
-      facebook: "https://res.cloudinary.com/eventjuicer/image/upload/v1647989026/teh21/teh_facebook.png",
-      "300x250": "https://res.cloudinary.com/eventjuicer/image/upload/v1647989025/teh21/teh_banner_300x250.png",
-      hd: "https://res.cloudinary.com/eventjuicer/image/upload/v1647989024/teh21/teh_banner_hd.jpg",
-      instagram: "https://res.cloudinary.com/eventjuicer/image/upload/v1647989023/teh21/teh_instagram.png",
-      "728x90": "https://res.cloudinary.com/eventjuicer/image/upload/v1647989019/teh21/teh_banner_728x90.png",
-      "250x250": "https://res.cloudinary.com/eventjuicer/image/upload/v1647989019/teh21/teh_banner_250x250.png"
-    }
+    banners: [
+      {
+        name: "twitter",
+        asset_id:  "teh21/teh_twitter.png",
+        text_xy: [200, 100],
+        text_size: 200
+      },
+      {
+        name: "linkedin",
+        asset_id:  "teh21/teh_linkedin.png",
+        text_xy: [200, 100],
+        text_size: 200
+      },
+      {
+        name: "468x60",
+        asset_id:  "teh21/teh_banner_468x60.png",
+        text_xy: [200, 100],
+        text_size: 200
+      },
+      {
+        name: "336x280",
+        asset_id:  "teh21/teh_banner_336x280.png",
+        text_xy: [200, 100],
+        text_size: 200
+      },
+      {
+        name: "facebook",
+        asset_id:  "teh21/teh_facebook.png",
+        text_xy: [200, 100],
+        text_size: 200
+      },
+      {
+        name: "300x250",
+        asset_id:  "teh21/teh_banner_300x250.png",
+        text_xy: [200, 100],
+        text_size: 200
+      },
+      {
+        name: "hd",
+        asset_id:  "teh21/teh_banner_hd.jpg",
+        text_xy: [200, 100],
+        text_size: 200
+      },
+      {
+        name: "instagram",
+        asset_id:  "teh21/teh_instagram.png",
+        text_xy: [200, 100],
+        text_size: 200
+      },
+      {
+        name: "728x90",
+        asset_id:   "teh21/teh_banner_728x90.png",
+        text_xy: [200, 100],
+        text_size: 200
+      },
+      {
+        name: "250x250", 
+        asset_id:   "teh21/teh_banner_250x250.png",
+        text_xy: [200, 100],
+        text_size: 200
+      }
+    ]
 
   },
 

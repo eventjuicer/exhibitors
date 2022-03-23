@@ -3,7 +3,7 @@ import React from 'react'
 import { useLogin, useNotify, useTranslate, useRefresh } from 'react-admin'
 import { useUrlToken } from '../helpers'
 import { useLoginSuccess } from '../contexts'
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 const UrlWatcher = () => {
 

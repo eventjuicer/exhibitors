@@ -20,18 +20,21 @@ import {TextStyle} from "@cloudinary/url-gen/qualifiers/textStyle";
 
 
 
-export const cloudinaryAddText = ({asset_id, content="test", height, width, format}) => {
+export const cloudinaryAddText = ({asset_id, content="test", height, width, text_gravity="center",text_xy=[0,0], text_size=40, format}) => {
 
     const myImage = createCloudinaryInstance().image(asset_id);
-
+    const [x,y] = text_xy
+    
     myImage.overlay(
-    source(
-    text(content, new TextStyle('Arial',40)
-    .fontWeight('bold'))
-    .textColor('#000000')
+      source(
+        text(content, new TextStyle('Arial', text_size)
+        .fontWeight('bold'))
+        .textColor('#000000')
+      )
+      .position(new Position().gravity(compass(text_gravity)).offsetX(x).offsetY(y)) 
     )
-    .position(new Position().gravity(compass('center')).offsetX(-45).offsetY(44)) 
-    )
+
+
 
     if(parseInt(height) && parseInt(width)){
       myImage.resize(fill().width(width).height(height))

@@ -7,6 +7,7 @@ import { makeStyles } from '../../../helpers'
 import PromoRawLink from "./PromoRawLink"
 import PromoNewsletter from "./PromoNewsletter"
 import PromoLink from "./PromoLink"
+import PromoBanners from "./PromoBanners"
 
 import UpdateOpengraphImage from "./UpdateOpengraphImage"
 import EmailIcon from '@material-ui/icons/Email';
@@ -48,23 +49,21 @@ const PartnerCreativesContent = ({ newsletters=[], links=[] }) => {
     const translate = useTranslate()
     const rawlink = links.find(Boolean) || {}
 
+    console.log({links, rawlink})
 
-    return (<Box>
+    return (<Box mt={2}>
 
-        <Box mb={6} mt={2}>
-        <Box mb={2}>
-        <Typography variant="h6" label="exhibitor.creatives.rawlink.title" />
-        <Typography variant="body2" label="exhibitor.creatives.rawlink.description" />
-        </Box>
 
-        <PromoRawLink link={rawlink.link_full}  />
-
-        </Box>
+        {/* <Box mb={6}>
+          <PromoBanners />
+        </Box> */}
+       
 
         <Box mb={6}>
+
         <Box mb={2}>
         <Typography variant="h6" label="resources.newsletters.name" />
-        <Typography variant="body2" label="exhibitor.creatives.newsletters.description" />
+        <Typography variant="body2" label="resources.creatives.newsletters.invite.description" />
         </Box>
 
         <Grid container spacing={5}>
@@ -77,19 +76,37 @@ const PartnerCreativesContent = ({ newsletters=[], links=[] }) => {
         <PromoNewsletter  {...item} /></Grid>))}
         </Grid>
         </Box>
+
         
         <Box mb={6}>
         <Box mb={2}>
         <Typography variant="h6" label="exhibitor.creatives.social.title" />
         <Typography variant="body2" label="exhibitor.creatives.social.description" paragraph />
-        </Box>
-
-    
+        </Box>    
         {links.map(item =><PromoLink key={item.id} {...item} />)}
 
           <UpdateOpengraphImage />
 
         </Box>
+
+
+
+
+
+
+        <Box mb={6} mt={2}>
+        <Box mb={2}>
+        <Typography variant="h6" label="exhibitor.creatives.rawlink.title" />
+        <Typography variant="body2" label="exhibitor.creatives.rawlink.description" />
+        </Box>
+
+        <PromoRawLink link={rawlink.link_full}  />
+
+        </Box>
+
+
+
+
     </Box>)
 }
 

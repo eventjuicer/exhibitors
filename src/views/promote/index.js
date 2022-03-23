@@ -1,18 +1,17 @@
 import React from 'react'
-import { useGet, isEmpty, findInArrayOrObject } from '../../helpers'
+import { useGet, isEmpty, findInArrayOrObject, useAddCompanyIdToUrl } from '../../helpers'
 import {
   Box, 
   Button,
   CompanySelector,
-  ResourceAbout
+  ResourceAbout,
+  Alert
 } from '../../components';
 import { useSetModal, useResolveCompanyId } from '../../contexts';
 import {
   CompanyRankInfo, 
   PartnerCreativesContent,
-  PromoBanners
 } from './components'
-import { useHistory } from 'react-router';
 
 
 const Empty = (props) => (<ResourceAbout descriptionLabel="logistics.timeline.items.promo.description" resource="creatives" {...props} />)
@@ -20,15 +19,14 @@ const Empty = (props) => (<ResourceAbout descriptionLabel="logistics.timeline.it
 const CompanySelectorInModal = () => {
 
   const modal = useSetModal()
-  const {replace, } = useHistory()
+
   
-  return ( <Button label="common.reset" variant="text" onClick={() => modal("", <CompanySelector onSelect={company_id => replace({
-    pathname: "/promote",
-    search: new URLSearchParams({company_id}).toString()
-  })} />) } />)
+  return ( <Button label="common.reset" variant="text" onClick={() => modal("Search for a company", <CompanySelector decorateUrl={true} />) } />)
 }
 
 const Promote = () => {
+
+  useAddCompanyIdToUrl()
 
   const {data} = useGet("/ranking", true)
   const company_id = useResolveCompanyId()
@@ -42,8 +40,11 @@ const Promote = () => {
     return (
     <Box p={2}>
       <CompanySelectorInModal />
-      <PromoBanners />
+    
       <CompanyRankInfo logotype={company.logotype}/>
+
+      <Alert type="info" label="resources.promote.description" />
+      
       <PartnerCreativesContent 
       links={ findInArrayOrObject(company.creatives, (item)=>item.act_as=="link") } 
       newsletters={ findInArrayOrObject(company.creatives, (item)=>item.act_as=="newsletter") } />

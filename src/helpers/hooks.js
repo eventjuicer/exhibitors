@@ -1,9 +1,9 @@
 
 import React, {useContext, useCallback} from 'react'
 import { useLocale, DataProviderContext, useNotify, useRedirect, useRefresh } from 'react-admin'
-import {useSettings, useToken} from '../contexts'
+import {useSettings, useToken, useCompany} from '../contexts'
 import { lsSet, lsGet } from './storage'
-import { useLocation } from 'react-router-dom' 
+import { useLocation, useHistory } from 'react-router-dom' 
 import {validateToken} from './varia'
 // import FakeLink from '../components/FakeLink'
 // import Link from '../components/Link'
@@ -104,11 +104,30 @@ export const useGet = (path, usePublicApi=false) => {
 }
 
 export const useSearchParams = () => {
-  const {search } = useLocation()
+  const { search } = useLocation()
   return new URLSearchParams(search);
 }
 
+export const useAddCompanyIdToUrl = () => {
 
+  const { pathname, search } = useLocation()
+  const company_id = useCompany("id")
+  const searchParams = useSearchParams()
+  const history = useHistory()
+
+  React.useEffect(()=>{
+
+    if(company_id > 0 && !searchParams.has("company_id")){
+      history.replace({
+        pathname,
+        search: new URLSearchParams({company_id}).toString()
+      })
+    }
+
+  }, [company_id, pathname, search])
+  
+
+}
 
 export const useUrlToken = () => {
 

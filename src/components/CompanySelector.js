@@ -6,9 +6,9 @@ import Table from './Table'
 import Button from './Button'
 import Avatar from './Avatar'
 
-import { makeStyles, useGet, isFunction } from '../helpers';
+import { makeStyles, useGet } from '../helpers';
 import { useCloseModal, useStoreCompanyId } from "../contexts"
-
+import { useHistory, useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -16,21 +16,27 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const CompanySelector = ({onSelect}) => {
+const CompanySelector = ({decorateUrl}) => {
 
     const {data} = useGet("/ranking", true)
     const [filtered, setFiltered] = React.useState([]);
     const classes =  useStyles()
     const storeCompanyId = useStoreCompanyId()
-
+    const {replace} = useHistory()
+    const {pathname} = useLocation()
     const closeModal = useCloseModal()
+
     const handleButtonClick = (row) => () => {
         storeCompanyId(row.company_id)
         closeModal()
-        if(isFunction(onSelect)){
-            onSelect(row.company_id)
+        if(decorateUrl){
+            replace({
+                pathname,
+                search: new URLSearchParams({company_id: row.company_id}).toString()
+            })
         }
     }
+
     return (
         <Box className={classes.root}>
         <Search data={data} indexes={["name", "slug"]} onSearch={setFiltered} />

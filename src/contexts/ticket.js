@@ -1,6 +1,6 @@
 import React from 'react'
 import {useLocale, useGetList, useMutation, linkToRecord} from 'react-admin'
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {isObject, isFunction, get} from '../helpers'
 
