@@ -4,6 +4,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Alert, AlertTitle } from '@material-ui/lab';
 import {useTranslate} from 'react-admin'
+import Markdown from './Markdown';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
    
         <Alert severity={type}>
         <AlertTitle>{translate(`common.${type}`)}</AlertTitle>
-        {label? translate(label): null}
+        <Markdown label={label}>{children}</Markdown>
+        {/* {label? translate(label): null} */}
         {children}
         </Alert>
       
