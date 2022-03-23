@@ -17,8 +17,22 @@ import {getLocalesArray} from './i18n'
 const settings = {
 
   promoninja: {
-    event_id: 89,
-    show_points: true
+    event_id: 95, //89
+    show_points: true,
+
+    banners: {
+      twitter: "https://res.cloudinary.com/eventjuicer/image/upload/v1647989029/teh21/teh_twitter.png",
+      linkedin: "https://res.cloudinary.com/eventjuicer/image/upload/v1647989029/teh21/teh_linkedin.png",
+      "468x60": "https://res.cloudinary.com/eventjuicer/image/upload/v1647989027/teh21/teh_banner_468x60.png",
+      "336x280": "https://res.cloudinary.com/eventjuicer/image/upload/v1647989027/teh21/teh_banner_336x280.png",
+      facebook: "https://res.cloudinary.com/eventjuicer/image/upload/v1647989026/teh21/teh_facebook.png",
+      "300x250": "https://res.cloudinary.com/eventjuicer/image/upload/v1647989025/teh21/teh_banner_300x250.png",
+      hd: "https://res.cloudinary.com/eventjuicer/image/upload/v1647989024/teh21/teh_banner_hd.jpg",
+      instagram: "https://res.cloudinary.com/eventjuicer/image/upload/v1647989023/teh21/teh_instagram.png",
+      "728x90": "https://res.cloudinary.com/eventjuicer/image/upload/v1647989019/teh21/teh_banner_728x90.png",
+      "250x250": "https://res.cloudinary.com/eventjuicer/image/upload/v1647989019/teh21/teh_banner_250x250.png"
+    }
+
   },
 
 

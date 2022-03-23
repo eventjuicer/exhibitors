@@ -8,7 +8,7 @@ export * from './storage'
 export * from './fetch'
 export * from './access'
 export * from './timedate'
-export {isString, isObject, isFunction, get, isEmpty, merge, isEqual, find, size, groupBy, head, sortBy, orderBy} from 'lodash'
+export {isString, isObject, isFunction, get, isEmpty, merge, isEqual, find, size, groupBy, head, sortBy, orderBy, map} from 'lodash'
 
 export {useSettings, useModal, useSetModal} from '../contexts'
 

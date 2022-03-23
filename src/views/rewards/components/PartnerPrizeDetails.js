@@ -2,6 +2,7 @@
 
 import { useTranslate } from 'react-admin'
 
+import {Box, Markdown} from '../../../components'
 
 const PrizeDetails = ({name, min, max, level}) => {
 
@@ -21,11 +22,19 @@ const PrizeDetails = ({name, min, max, level}) => {
 "updated_at": "2021-10-03 12:20:07"
 },
  */
-    return (<ul>
+    return (
+    <Box>
+
+    <Markdown label={`prizes.${name}.description`} />
+<ul>
+
     <li>{translate("prizes.min")}: {min}</li>
     <li>{translate("prizes.max")}: {max}</li>
     <li>{translate("prizes.level")}: {level}</li>
-    </ul>)
+    </ul>
+
+    </Box>
+  )
 }
 
 export default PrizeDetails

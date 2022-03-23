@@ -80,7 +80,7 @@ const PartnerPrizes = ({data=[], active=[], icons={}, full=false, points=0, posi
                 key: name,
                 fontSize: "large",
                 style: large? {fontSize: 50}: undefined,
-                onClick: () => dialog({label: `prizes.${prize.name}.name`, content: <PartnerPrizeDetails {...prize} />}),
+                onClick: () => dialog(`prizes.${prize.name}.title`, <PartnerPrizeDetails {...prize} />),
                 className: (active || []).includes(prize.name)? classes.active: classes.disabled
             })
         }
