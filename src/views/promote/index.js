@@ -9,21 +9,20 @@ import {
 import { useSetModal, useResolveCompanyId } from '../../contexts';
 import {
   CompanyRankInfo, 
-  PartnerCreativesContent
+  PartnerCreativesContent,
+  PromoBanners
 } from './components'
 import { useHistory } from 'react-router';
 
 
 const Empty = (props) => (<ResourceAbout descriptionLabel="logistics.timeline.items.promo.description" resource="creatives" {...props} />)
 
-
-
 const CompanySelectorInModal = () => {
 
   const modal = useSetModal()
-  const {push} = useHistory()
+  const {replace, } = useHistory()
   
-  return ( <Button label="common.reset" variant="text" onClick={() => modal("", <CompanySelector onSelect={company_id => push({
+  return ( <Button label="common.reset" variant="text" onClick={() => modal("", <CompanySelector onSelect={company_id => replace({
     pathname: "/promote",
     search: new URLSearchParams({company_id}).toString()
   })} />) } />)
@@ -35,12 +34,15 @@ const Promote = () => {
   const company_id = useResolveCompanyId()
   const company = (data || []).find(item => item.company_id == company_id)
 
+  console.log({company, company_id})
+
   if(!company){
     return <CompanySelectorInModal />
   }else{
     return (
     <Box p={2}>
       <CompanySelectorInModal />
+      <PromoBanners />
       <CompanyRankInfo logotype={company.logotype}/>
       <PartnerCreativesContent 
       links={ findInArrayOrObject(company.creatives, (item)=>item.act_as=="link") } 
