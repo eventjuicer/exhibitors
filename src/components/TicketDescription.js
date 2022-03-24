@@ -14,7 +14,7 @@ const TicketDescription = () => {
 
     return (<Box m={2}>
         <Markdown label={`${localName}.description`}></Markdown>
-        {specs ? <Alert type="info"><Markdown>{specs}</Markdown></Alert>: null}
+        {specs ? <Alert type="info">{specs}</Alert>: null}
     </Box>)
 }
 
