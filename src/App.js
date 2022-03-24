@@ -44,8 +44,8 @@ function App() {
     ))}
       i18nProvider={ i18nProvider }
       authProvider={ authClient }
-      customReducers={ reducers }
-      customSagas={ sagas }
+      // customReducers={ reducers }
+      // customSagas={ sagas }
     > 
     <SettingsContext data={settings}>
       <UserContext>
