@@ -38,7 +38,7 @@ const settings = {
         name: "468x60",
         asset_id:  "teh21/teh_banner_468x60.png",
         text_xy: [20, 10],
-        text_size: 35,
+        text_size: 30,
         text_gravity: "south_east"
       },
       {
@@ -63,8 +63,9 @@ const settings = {
       {
         name: "250x250", 
         asset_id:   "teh21/teh_banner_250x250.png",
-        text_xy: [200, 100],
-        text_size: 200
+        text_xy: [20, 15],
+        text_size: 35,
+        text_gravity: "south_east"
       }
     ]
 
