@@ -22,32 +22,28 @@ const settings = {
 
     banners: [
       {
-        name: "twitter",
+        name: "twitter/linkedin/facebook 1920x1080",
         asset_id:  "teh21/teh_twitter.png",
         text_xy: [200, 100],
         text_size: 200
       },
       {
-        name: "linkedin",
-        asset_id:  "teh21/teh_linkedin.png",
+        name: "instagram 1080x1080",
+        asset_id:  "teh21/teh_instagram.png",
         text_xy: [200, 100],
         text_size: 200
       },
+      
       {
         name: "468x60",
         asset_id:  "teh21/teh_banner_468x60.png",
-        text_xy: [200, 100],
-        text_size: 200
+        text_xy: [20, 10],
+        text_size: 35,
+        text_gravity: "south_east"
       },
       {
         name: "336x280",
         asset_id:  "teh21/teh_banner_336x280.png",
-        text_xy: [200, 100],
-        text_size: 200
-      },
-      {
-        name: "facebook",
-        asset_id:  "teh21/teh_facebook.png",
         text_xy: [200, 100],
         text_size: 200
       },
@@ -57,18 +53,7 @@ const settings = {
         text_xy: [200, 100],
         text_size: 200
       },
-      {
-        name: "hd",
-        asset_id:  "teh21/teh_banner_hd.jpg",
-        text_xy: [200, 100],
-        text_size: 200
-      },
-      {
-        name: "instagram",
-        asset_id:  "teh21/teh_instagram.png",
-        text_xy: [200, 100],
-        text_size: 200
-      },
+    
       {
         name: "728x90",
         asset_id:   "teh21/teh_banner_728x90.png",

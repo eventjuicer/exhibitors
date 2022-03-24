@@ -7,7 +7,7 @@ import {
   ResourceAbout,
   Alert
 } from '../../components';
-import { useSetModal, useResolveCompanyId } from '../../contexts';
+import { useSetModal, useResolveCompanyId, useCompany } from '../../contexts';
 import {
   CompanyRankInfo, 
   PartnerCreativesContent,
@@ -19,7 +19,11 @@ const Empty = (props) => (<ResourceAbout descriptionLabel="logistics.timeline.it
 const CompanySelectorInModal = () => {
 
   const modal = useSetModal()
+  const hasCompany = useCompany("id")
 
+  if(hasCompany){
+    return null
+  }
   
   return ( <Button label="common.reset" variant="text" onClick={() => modal("Search for a company", <CompanySelector decorateUrl={true} />) } />)
 }
@@ -32,6 +36,7 @@ const Promote = () => {
   const {data} = useGet("/ranking", true)
   const company_id = useResolveCompanyId()
   const company = (data || []).find(item => item.company_id == company_id)
+ 
 
   console.log({company, company_id})
 

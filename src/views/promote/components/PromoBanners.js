@@ -2,19 +2,30 @@
 
 import { useSettings, useSetModal, usePublicCompanyData } from "../../../contexts"
 import { isEmpty, head, cloudinaryAddText, makeStyles } from '../../../helpers'
-import { Box, Grid, Avatar, Typography, CardImage, Button } from "../../../components"
+import { Box, Grid, Avatar, Typography, CardImage, Button, Alert } from "../../../components"
+
+const DialogContent = ({code, imageUrl}) => {
 
 
-const DialogContent = () => {
+    return (<Box>
 
+    <Box maxWidth={800} mb={2}>
+    <img src={imageUrl} alt="" style={{maxWidth: 800}} />
+    </Box>
 
-    return (<div></div>)
+    <Alert label="resources.promote.banners.howto" type="info" />
+
+    <Box mt={2}>
+        {code}
+    </Box>
+
+    </Box>)
 
 }
 
 
 
-const ImageWithBoothNumber = ({name, asset_id, text_xy, text_size}) => {
+const ImageWithBoothNumber = ({wrap, name, asset_id, text_xy, text_size, text_color="#fff", text_gravity= "south_west"}) => {
 
  const modal = useSetModal()
 
@@ -25,14 +36,17 @@ const ImageWithBoothNumber = ({name, asset_id, text_xy, text_size}) => {
     content: head(boothIds),
     text_xy,
     text_size,
-    text_gravity: "south_west"
+    text_gravity,
+    text_color
     // width: 300,
     // height: 300
  })
 
- const handleClick = () => modal("asd", "") 
+ const imageUrl = transformedImage.toURL()
 
- return <CardImage minWidth={300} height={200} buttons={<Button label="common.download" variant="text" onClick={handleClick} />} text={name} cover={false} image={transformedImage.toURL()} onClick={handleClick} />
+ const handleClick = () => modal("asd", <DialogContent imageUrl={imageUrl} code={wrap(imageUrl)} />) 
+
+ return <CardImage minWidth={300} height={200} buttons={<Button label="common.download" variant="text" onClick={handleClick} />} text={name} cover={false} image={imageUrl} onClick={handleClick} />
 
 
 
@@ -42,7 +56,7 @@ const ImageWithBoothNumber = ({name, asset_id, text_xy, text_size}) => {
 }
 
 
-const PromoBanners = ({link}) => {
+const PromoBanners = ({wrap}) => {
 
     const {banners} = useSettings("promoninja", [])
 
@@ -51,7 +65,7 @@ const PromoBanners = ({link}) => {
     }
    
     return (<Box><Grid container spacing={2}>{(banners || []).map((banner) => <Grid key={banner.name} item>
-       <ImageWithBoothNumber {...banner} />
+       <ImageWithBoothNumber {...banner} wrap={wrap} />
     </Grid>)}</Grid></Box>)
 }
 

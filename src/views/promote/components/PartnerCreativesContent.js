@@ -49,14 +49,15 @@ const PartnerCreativesContent = ({ newsletters=[], links=[] }) => {
     const translate = useTranslate()
     const rawlink = links.find(Boolean) || {}
 
+    
     console.log({links, rawlink})
 
     return (<Box mt={2}>
 
 
-        {/* <Box mb={6}>
-          <PromoBanners />
-        </Box> */}
+        <Box mb={6}>
+          <PromoBanners wrap={(image) => <PromoRawLink link={rawlink.link_full} image={image}  />}/>
+        </Box> 
        
 
         <Box mb={6}>

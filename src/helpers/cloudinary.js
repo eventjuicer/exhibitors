@@ -20,7 +20,7 @@ import {TextStyle} from "@cloudinary/url-gen/qualifiers/textStyle";
 
 
 
-export const cloudinaryAddText = ({asset_id, content="test", height, width, text_gravity="center",text_xy=[0,0], text_size=40, format}) => {
+export const cloudinaryAddText = ({asset_id, content="test", height, width, text_gravity="center", text_color="#fff", text_xy=[0,0], text_size=40, format}) => {
 
     const myImage = createCloudinaryInstance().image(asset_id);
     const [x,y] = text_xy
@@ -29,7 +29,7 @@ export const cloudinaryAddText = ({asset_id, content="test", height, width, text
       source(
         text(content, new TextStyle('Arial', text_size)
         .fontWeight('bold'))
-        .textColor('#000000')
+        .textColor(text_color)
       )
       .position(new Position().gravity(compass(text_gravity)).offsetX(x).offsetY(y)) 
     )

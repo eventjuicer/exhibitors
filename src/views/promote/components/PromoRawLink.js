@@ -34,12 +34,17 @@ const useStyles = makeStyles({
 });
   
 
-const PromoRawLink = ({link}) => {
+const PromoRawLink = ({link, image}) => {
     const classes = useStyles()
+
+    if(image && image.includes("http")){
+      link = `<a href=${link}><img src="${image}" alt="" /></a>`
+    }
+
     return  (<Box>
             <TextField multiline={true} value={link} fullWidth={true}  variant="outlined"  />
-            <CopyToClipboardButton text={link} />
-            <Button label={`common.test`} href={link} />
+            <CopyToClipboardButton text={link} label={image? "common.copy-to-clipboard-code": undefined} />
+            {!image? <Button label={`common.test`} href={link} />: null}
             </Box>)
 }
 
