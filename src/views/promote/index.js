@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGet, isEmpty, findInArrayOrObject, useAddCompanyIdToUrl } from '../../helpers'
+import { useGet, isEmpty, findInArrayOrObject, useAddCompanyIdToUrl, useStoreCompanyId } from '../../helpers'
 import {
   Box, 
   Button,
@@ -27,6 +27,7 @@ const CompanySelectorInModal = () => {
 const Promote = () => {
 
   useAddCompanyIdToUrl()
+  useStoreCompanyId()
 
   const {data} = useGet("/ranking", true)
   const company_id = useResolveCompanyId()

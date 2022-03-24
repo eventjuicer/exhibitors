@@ -1,10 +1,6 @@
 import React from 'react'
 import { useLocalStorage, find, get, map, useGet, useSearchParams} from '../helpers';
 
-export const useStoreCompanyId = (key = "guestCompanyId") => {
-    const [_, toLocalStorage] = useLocalStorage(key, 0)
-    return React.useCallback((company_id) => toLocalStorage(company_id),[key, toLocalStorage])
-}
 
 export const useResolveCompanyId = (key = "guestCompanyId") => {
 

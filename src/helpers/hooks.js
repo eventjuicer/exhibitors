@@ -108,6 +108,22 @@ export const useSearchParams = () => {
   return new URLSearchParams(search);
 }
 
+export const useStoreCompanyId = (key="guestCompanyId") => {
+
+  const searchParams = useSearchParams()
+  const [_, toLocalStorage] = useLocalStorage(key, 0)
+
+  React.useEffect(()=>{
+
+    if(searchParams.has("company_id")){
+      toLocalStorage(searchParams.get("company_id"))
+    }
+
+  }, [ searchParams.toString() ])
+
+
+}
+
 export const useAddCompanyIdToUrl = () => {
 
   const { pathname, search } = useLocation()

@@ -7,7 +7,7 @@ import Button from './Button'
 import Avatar from './Avatar'
 
 import { makeStyles, useGet } from '../helpers';
-import { useCloseModal, useStoreCompanyId } from "../contexts"
+import { useCloseModal } from "../contexts"
 import { useHistory, useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
@@ -21,13 +21,12 @@ const CompanySelector = ({decorateUrl}) => {
     const {data} = useGet("/ranking", true)
     const [filtered, setFiltered] = React.useState([]);
     const classes =  useStyles()
-    const storeCompanyId = useStoreCompanyId()
     const {replace} = useHistory()
     const {pathname} = useLocation()
     const closeModal = useCloseModal()
 
     const handleButtonClick = (row) => () => {
-        storeCompanyId(row.company_id)
+
         closeModal()
         if(decorateUrl){
             replace({
