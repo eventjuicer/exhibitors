@@ -4,7 +4,8 @@ import { makeStyles, useGet, isEmpty } from '../../../helpers'
 import { useTranslate } from 'react-admin'
 import PartnerPrizes from '../../rewards/components/PartnerPrizes'
 import * as icons from '../../rewards/icons'
-import { useToken } from '../../../contexts';
+import { useToken, useSettings } from '../../../contexts';
+
 
  const useStyles = makeStyles(theme => ({
   table: {
@@ -49,15 +50,17 @@ const AvatarWithCompanyName = ({logotype=null, name=""}) => {
     </Grid>)
 }
 
-const PointsWithPrizes = ({prizes=[], assigned=[], points=0 }) => {
+const PointsWithPrizes = ({setting="", prizes=[], assigned=[], points=0 }) => {
+
+  const {show_points} = useSettings(setting, {})
 
   const classes = useStyles()
 
   return (
     <Grid container spacing={1} justifyContent="center" className={classes.PointsWithPrizes}>
-      <Grid item xs={12} sm={12} md={4}>
+      {show_points? <Grid item xs={12} sm={12} md={4}>
         <Typography variant="h5">{points}</Typography>
-      </Grid>  
+      </Grid>: null}
       <Grid item xs={12} sm={12} md={8}>
       <PartnerPrizes data={prizes} active={assigned} icons={icons}  />  
       </Grid>  
@@ -67,8 +70,11 @@ const PointsWithPrizes = ({prizes=[], assigned=[], points=0 }) => {
 }
 
 
-const PartnerPerformance = ({icons, event_id=null, show_points=true, limit=undefined}) => {
+const PartnerPerformance = ({icons, setting="", limit=undefined}) => {
    
+
+  const {event_id} = useSettings(setting, {})
+
    const classes = useStyles()
    const {data, loading, error} = useGet("/ranking", true);
    const prizes = useGet("/prizes", true);
@@ -101,7 +107,7 @@ const PartnerPerformance = ({icons, event_id=null, show_points=true, limit=undef
     <Table showHeader={true} baseLabel="fields." rows={filtered} columns={[
       // {stats.position},
       {name: "cname2", render: (row) => <AvatarWithCompanyName logotype={row.logotype} name={row.name} />},
-      {name: "prizes", render: (row) => <PointsWithPrizes prizes={prizes.data} assigned={row.stats.prizes} points={row.stats.sessions} /> },
+      {name: "prizes", render: (row) => <PointsWithPrizes setting={setting} prizes={prizes.data} assigned={row.stats.prizes} points={row.stats.sessions} /> },
       ...(user? []: [{name: "link", render: (row) => <ButtonLink to={`/promote`} query={{company_id: row.company_id}} variant="outlined" /> }])
 
 ]} />
