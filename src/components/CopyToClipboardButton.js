@@ -5,6 +5,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Button from './Button'
 
 const CopyToClipboardButton = ({
+  label="common.copy-to-clipboard",
   text="props.text",
   ...rest
 }) => {
@@ -16,7 +17,7 @@ const CopyToClipboardButton = ({
       text={text}
       onCopy={() =>  notify("actions.copied") }
     >
-     <Button label="common.copy-to-clipboard" startIcon={ <FileCopy /> } {...rest} />
+     <Button label={label} startIcon={ <FileCopy /> } {...rest} />
     </CopyToClipboard>
   );
 }
