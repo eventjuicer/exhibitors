@@ -9,8 +9,8 @@ const DialogContent = ({code, imageUrl}) => {
 
     return (<Box>
 
-    <Box maxWidth={800} mb={2}>
-    <img src={imageUrl} alt="" style={{maxWidth: 800}} />
+    <Box maxWidth={600} maxHeight={600} mb={2}>
+    <img src={imageUrl} alt="" style={{maxWidth: 600, maxHeight: 600}} />
     </Box>
 
     <Alert label="resources.promote.banners.howto" type="info" />
@@ -33,7 +33,7 @@ const ImageWithBoothNumber = ({wrap, name, asset_id, text_xy, text_size, text_co
 
  const transformedImage = cloudinaryAddText({
     asset_id,
-    content: head(boothIds),
+    content: head(boothIds) || "A0.0",
     text_xy,
     text_size,
     text_gravity,
@@ -46,7 +46,7 @@ const ImageWithBoothNumber = ({wrap, name, asset_id, text_xy, text_size, text_co
 
  const handleClick = () => modal("asd", <DialogContent imageUrl={imageUrl} code={wrap(imageUrl)} />) 
 
- return <CardImage minWidth={300} height={200} buttons={<Button label="common.download" variant="text" onClick={handleClick} />} text={name} cover={false} image={imageUrl} onClick={handleClick} />
+ return <CardImage minWidth={200} maxWidth={400} height={150} buttons={<Button label="common.download" variant="text" onClick={handleClick} />} text={name} cover={false} image={imageUrl} onClick={handleClick} />
 
 
 
@@ -64,7 +64,7 @@ const PromoBanners = ({wrap}) => {
         return null
     }
    
-    return (<Box><Grid container spacing={2}>{(banners || []).map((banner) => <Grid key={banner.name} item>
+    return (<Box m={2}><Grid container spacing={2}>{(banners || []).map((banner) => <Grid key={banner.name} item>
        <ImageWithBoothNumber {...banner} wrap={wrap} />
     </Grid>)}</Grid></Box>)
 }

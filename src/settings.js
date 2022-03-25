@@ -17,7 +17,7 @@ import {getLocalesArray} from './i18n'
 const settings = {
 
   promoninja: {
-    event_id: 95, //89
+  //  event_id: 95, //teh 20 - 89, teh21 - 95
     show_points: true,
 
     banners: [
@@ -30,8 +30,9 @@ const settings = {
       {
         name: "instagram 1080x1080",
         asset_id:  "teh21/teh_instagram.png",
-        text_xy: [200, 100],
-        text_size: 200
+        text_xy: [40, 60],
+        text_size: 140,
+        text_gravity: "south_east"
       },
       
       {
@@ -44,8 +45,9 @@ const settings = {
       {
         name: "336x280",
         asset_id:  "teh21/teh_banner_336x280.png",
-        text_xy: [200, 100],
-        text_size: 200
+        text_xy: [12, 20],
+        text_size: 40,
+        text_gravity: "south_east"
       },
       {
         name: "300x250",
@@ -63,8 +65,8 @@ const settings = {
       {
         name: "250x250", 
         asset_id:   "teh21/teh_banner_250x250.png",
-        text_xy: [20, 15],
-        text_size: 35,
+        text_xy: [17, 17],
+        text_size: 34,
         text_gravity: "south_east"
       }
     ]

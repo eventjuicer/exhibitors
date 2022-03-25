@@ -44,7 +44,7 @@ const PromoRawLink = ({link, image}) => {
     return  (<Box>
             <TextField multiline={true} value={link} fullWidth={true}  variant="outlined"  />
             <CopyToClipboardButton text={link} label={image? "common.copy-to-clipboard-code": undefined} />
-            {!image? <Button label={`common.test`} href={link} />: null}
+            {!image? <Button label={`common.test`} href={link} variant="outlined" />: null}
             </Box>)
 }
 
