@@ -5,7 +5,7 @@ import { useTranslate } from 'react-admin'
 import PartnerPrizes from '../../rewards/components/PartnerPrizes'
 import * as icons from '../../rewards/icons'
 import { useToken, useSettings } from '../../../contexts';
-
+import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 
  const useStyles = makeStyles(theme => ({
   table: {
@@ -58,9 +58,9 @@ const PointsWithPrizes = ({setting="", prizes=[], assigned=[], points=0 }) => {
 
   return (
     <Grid container spacing={1} justifyContent="center" className={classes.PointsWithPrizes}>
-      {show_points? <Grid item xs={12} sm={12} md={4}>
-        <Typography variant="h5">{points}</Typography>
-      </Grid>: null}
+     <Grid item xs={12} sm={12} md={4}>
+     {show_points?  <Typography variant="h5">{points}</Typography> : <HourglassEmptyIcon />}
+      </Grid>
       <Grid item xs={12} sm={12} md={8}>
       <PartnerPrizes data={prizes} active={assigned} icons={icons}  />  
       </Grid>  
