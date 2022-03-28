@@ -4,17 +4,14 @@ import {
   Box, 
   Button,
   CompanySelector,
-  ResourceAbout,
-  Alert
+  ResourceAbout
 } from '../../components';
 import { useSetModal, useResolveCompanyId, useCompany } from '../../contexts';
 import {
   CompanyRankInfo, 
   PartnerCreativesContent,
 } from './components'
-
-
-const Empty = (props) => (<ResourceAbout descriptionLabel="logistics.timeline.items.promo.description" resource="creatives" {...props} />)
+import PromoteIcon from '@material-ui/icons/VolumeUp'
 
 const CompanySelectorInModal = () => {
 
@@ -45,12 +42,15 @@ const Promote = () => {
   }else{
     return (
     <Box p={2}>
+    
       <CompanySelectorInModal />
     
-      <CompanyRankInfo logotype={company.logotype}/>
+      <CompanyRankInfo logotype={company.logotype} setting="promoninja" />
 
-      <Alert type="info" label="resources.promote.description" />
+      {/* <Alert type="info" label="resources.promote.description" /> */}
       
+      <ResourceAbout icon={PromoteIcon} descriptionLabel="logistics.timeline.items.promo.description" resource="promote" />
+
       <PartnerCreativesContent 
       links={ findInArrayOrObject(company.creatives, (item)=>item.act_as=="link") } 
       newsletters={ findInArrayOrObject(company.creatives, (item)=>item.act_as=="newsletter") } />
@@ -65,6 +65,6 @@ const Promote = () => {
 }
 
 
-
+export {PromoteIcon}
 
 export default Promote

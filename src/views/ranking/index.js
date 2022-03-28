@@ -1,9 +1,9 @@
 
-import {Card, Grid, Box, ResourceAbout} from '../../components'
+import {Card, Grid, Box, ResourceAbout, ButtonLink} from '../../components'
 import PartnerPerformance from "./components/PartnerPerformance"
 import * as icons from '../rewards/icons'
 import RankingIcon from '@material-ui/icons/TrendingUp';
-//resources.ranking.subtitle
+import {PromoteIcon} from '../promote'
 
 const Ranking = ({setting="promoninja"}) => {
 
@@ -15,7 +15,13 @@ const Ranking = ({setting="promoninja"}) => {
       <PartnerPerformance icons={icons} setting={setting} />
       </Grid>
       <Grid item xs={12} sm={12} md={3}>
-      <ResourceAbout resource="ranking" aside={true} icon={RankingIcon} descriptionLabel="logistics.timeline.items.ranking.description" />
+      <ResourceAbout 
+        resource="ranking" 
+        aside={true} 
+        icon={RankingIcon} 
+        descriptionLabel="logistics.timeline.items.ranking.description" 
+        buttons={<ButtonLink to="promote" label="resources.promote.menu" startIcon={<PromoteIcon />} variant="text" />}
+        />
       </Grid>
     </Grid>
    
@@ -25,5 +31,6 @@ const Ranking = ({setting="promoninja"}) => {
 
 }
 
+export {RankingIcon}
 
 export default Ranking

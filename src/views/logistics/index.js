@@ -3,6 +3,7 @@ import {Card} from '@material-ui/core';
 import {Timeline, Support, Grid, Box} from '../../components'
 import {useSettings} from '../../contexts'
 import { Title } from 'react-admin';
+import LogisticsIcon from '@material-ui/icons/Assignment';
 
 
 const InfoBox = () => (<Grid container>
@@ -25,5 +26,6 @@ const InfoBox = () => (<Grid container>
   );
 }
 
+export {LogisticsIcon}
 
 export default Logistics
