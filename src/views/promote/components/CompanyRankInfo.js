@@ -1,7 +1,12 @@
 import React from 'react'
 import { resizeCloudinaryImage, grey, makeStyles } from '../../../helpers'
 import { useTranslate } from 'react-admin'
-import {Avatar, Box, Paper, Grid, Typography} from '../../../components'
+import {Avatar, Box, Paper, Grid, Typography, ButtonLink} from '../../../components'
+import {RankingIcon} from '../../ranking'
+import HourglassEmpty from '@material-ui/icons/HourglassEmpty'
+import { useSettings } from '../../../contexts'
+
+
 
  const useStyles = makeStyles({
 
@@ -15,7 +20,7 @@ import {Avatar, Box, Paper, Grid, Typography} from '../../../components'
     maxWidth: "85%",
   },
   stats: {
-    maxWidth: 300,
+    maxWidth: 400,
     padding: 10,
     backgroundColor: grey[300],
     marginBottom: 20
@@ -23,10 +28,11 @@ import {Avatar, Box, Paper, Grid, Typography} from '../../../components'
 });
 
 
-const CompanyRankInfo = ({logotype="", sessions = 0, position = 0}) => {
+const CompanyRankInfo = ({setting="", logotype="", sessions = 0, position = 0}) => {
    
    const classes = useStyles()
    const translate = useTranslate()
+   const {show_points} = useSettings(setting, {})
 
 
     return (<Box mb={8}>
@@ -40,16 +46,20 @@ const CompanyRankInfo = ({logotype="", sessions = 0, position = 0}) => {
       </Grid>
       <Grid item>
         <Paper className={classes.stats}>
-          <Grid container spacing={1}>
+          <Grid container spacing={1} justifyContent="center">
           <Grid item>
           <Typography gutterBottom align="center" variant="body1" label="common.points" />
-          <Typography gutterBottom align="center" variant="h4"> {sessions} </Typography>
+          <Typography gutterBottom align="center" variant="h4"> {show_points && sessions ? sessions: <HourglassEmpty />} </Typography>
           </Grid>
           <Grid item>
           <Typography gutterBottom align="center" variant="body1" label="common.position" />
-          <Typography gutterBottom align="center" variant="h4"> {sessions ? position: "-"} </Typography>
+          <Typography gutterBottom align="center" variant="h4"> {show_points && sessions ? position: <HourglassEmpty /> } </Typography>
           </Grid>
           </Grid>
+
+          <ButtonLink label="resources.promote.show_ranking" startIcon={<RankingIcon />} to="ranking" variant="text" />
+          
+
         </Paper>
       </Grid>
     </Grid>
