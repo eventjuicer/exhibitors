@@ -103,6 +103,7 @@ const PartnerPerformance = ({icons, setting="", limit=undefined}) => {
         "slug"
       ]}
       onSearch={setFiltered}
+      placeholder={translate("logistics.timeline.items.ranking.search")}
     />
     <Table showHeader={true} baseLabel="fields." rows={filtered} columns={[
       // {stats.position},
