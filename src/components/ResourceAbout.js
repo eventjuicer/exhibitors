@@ -14,7 +14,7 @@ import {
     Card
 } from '@material-ui/core'
 
-import { useIsMobile, makeStyles, isFunction } from '../helpers';
+import { useIsMobile, makeStyles } from '../helpers';
 import Markdown from './Markdown';
 import classNames from 'classnames';
 import { CardContent, CardActions, Box } from '@material-ui/core';
@@ -56,7 +56,7 @@ const useStyles = aside => makeStyles(theme => ({
 }))
 
 
-const ResourceAbout = ({icon=null, resource="", aside=false, descriptionLabel=null}) => {
+const ResourceAbout = ({icon=null, resource="", aside=false, descriptionLabel=null, buttons=null }) => {
     const { basePath } = useListContext();
     const classes = useStyles(aside)()
     const isMobile = useIsMobile()
@@ -76,6 +76,7 @@ const ResourceAbout = ({icon=null, resource="", aside=false, descriptionLabel=nu
                     <Typography variant={aside || isMobile? "h5": "h4"} paragraph label={`resources.${resource}.menu`} />
                     <Markdown label={descriptionLabel || `resources.${resource}.info`} />
                     {!aside && basePath ? <CreateButton basePath={basePath} /> : null}
+                    {buttons}
                     </Box>
 
                 </Grid>
