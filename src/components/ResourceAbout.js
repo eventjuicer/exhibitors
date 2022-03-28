@@ -1,18 +1,24 @@
 
 import React from 'react';
+
 import {
   useListContext,
   CreateButton
 } from 'react-admin';
+
 import Typography from './Typography'
+
 import {
     Paper,
     Grid,
-    makeStyles
+    Card
 } from '@material-ui/core'
-import { useIsMobile } from '../helpers';
+
+import { useIsMobile, makeStyles, isFunction } from '../helpers';
 import Markdown from './Markdown';
 import classNames from 'classnames';
+import { CardContent, CardActions, Box } from '@material-ui/core';
+
 const useStyles = aside => makeStyles(theme => ({
 
     root: {
@@ -29,7 +35,7 @@ const useStyles = aside => makeStyles(theme => ({
     },
     empty: {
         minWidth: '50vw',
-        maxWidth: 900,
+        maxWidth: "100%",
         padding: 20,
         marginBottom: 100,
         [theme.breakpoints.between("xs","md")]: {
@@ -43,34 +49,42 @@ const useStyles = aside => makeStyles(theme => ({
         [theme.breakpoints.down("md")]: {
             fontSize: 60
         }
+    },
+    texts:{
+        maxWidth: 700
     }
 }))
 
 
-const ResourceAbout = ({icon, resource, aside, descriptionLabel}) => {
+const ResourceAbout = ({icon=null, resource="", aside=false, descriptionLabel=null}) => {
     const { basePath } = useListContext();
     const classes = useStyles(aside)()
     const isMobile = useIsMobile()
 
-    return (
-        <Paper className={classNames(classes.root, {
+    return (<Card className={classNames(classes.root, {
             [classes.aside]: aside,
             [classes.empty]: !aside
         })} elevation={aside? 0: 0}>
            
-            <Grid container spacing={3} justifyContent="center" alignItems="center" direction={aside? "column": "row"}>
-                <Grid item xs={12} sm={12} md={2}>{React.createElement(icon, {className: classes.icon})}</Grid>
+           <CardContent>
+
+           <Grid container justifyContent="center" alignItems="center" direction={aside? "column": "row"}>
+                <Grid item xs={12} sm={12} md={2}>{icon? React.createElement(icon, {className: classes.icon}): null}</Grid>
                 <Grid item xs={12} sm={12} md={10}>
-                   
+
+                    <Box className={classes.texts}>
                     <Typography variant={aside || isMobile? "h5": "h4"} paragraph label={`resources.${resource}.menu`} />
                     <Markdown label={descriptionLabel || `resources.${resource}.info`} />
                     {!aside && basePath ? <CreateButton basePath={basePath} /> : null}
-                
+                    </Box>
+
                 </Grid>
             </Grid>
+
+           </CardContent>
+          {/* <CardActions>as</CardActions> */}
           
-        </Paper>
-    );
+        </Card>);
   };
 
 export default ResourceAbout
