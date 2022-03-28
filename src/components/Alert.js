@@ -5,6 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Alert, AlertTitle } from '@material-ui/lab';
 import {useTranslate} from 'react-admin'
 import Markdown from './Markdown';
+import { isString } from '../helpers';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -15,17 +17,16 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
   
- function CustomAlert({type="warning", label, children=null}) {
+ function CustomAlert({type="warning", label, children=null, action=null }) {
     const classes = useStyles();
     const translate = useTranslate()
 
     return (
    
-        <Alert severity={type}>
+        <Alert severity={type} action={action}>
         <AlertTitle>{translate(`common.${type}`)}</AlertTitle>
-        <Markdown label={label}>{children}</Markdown>
-        {/* {label? translate(label): null} */}
-        {children}
+        <Markdown label={label}>{isString(children)? children: null}</Markdown>
+        {!isString(children)? children: null}
         </Alert>
       
     );
