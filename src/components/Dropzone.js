@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-function Dropzone({resource="companydata", source, id, multiple=false}) {
+function Dropzone({resource="companydata", source="value", id, multiple=false}) {
   
   const classes = useStyles()
   //const update = useUploadFiles(resource)

@@ -12,6 +12,10 @@ import Avatar from './Avatar'
  * RestrictedImageUploaded
  */
 
+
+
+
+
 const UploadableAvatar = ({size=150, variant="square", preview,...rest}) => {
 
       const [interacted, setInteracted] = React.useState(false)
@@ -22,13 +26,17 @@ const UploadableAvatar = ({size=150, variant="square", preview,...rest}) => {
       })
 
       size = parseInt(size) || 150
-      
+
       const handleClick = React.useCallback(() => {
             setInteracted(true)
             modal("common.upload.dialog", <Dropzone {...rest} />)
       })
+
       const handlePreview = React.useCallback(
             () => modal("common.preview", <Box><Avatar size="500" src={imageSrc} variant={variant} /></Box>)
+      )
+      const handlePreviewImg = React.useCallback(
+            () => modal("common.preview", <Box><img style={{maxWidth: 800, maxHeight: 800}} src={imageSrc} alt="" /></Box>)
       )
 
       return (
@@ -36,7 +44,7 @@ const UploadableAvatar = ({size=150, variant="square", preview,...rest}) => {
       <Grid container direction='column' alignItems='center'>
             <Grid item>
 
-                  <Avatar size={size} src={imageSrc} onClick={handlePreview} variant={variant}  />
+                 {variant=="rect"? <img src={imageSrc} alt="" onClick={handlePreviewImg} style={{maxWidth: size, maxHeight: size, border: "1px solid #eaeaea"}} />: <Avatar size={size} src={imageSrc} onClick={handlePreview} variant={variant}  /> } 
 
             </Grid>
             <Grid item>
