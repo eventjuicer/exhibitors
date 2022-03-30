@@ -47,9 +47,6 @@ const PartnerPrizes = ({data=[], active=[], icons={}, full=false, points=0, posi
     const classes = useStyles()
     const translate = useTranslate()
 
-
-
-
     if(isEmpty(data) || !Array.isArray(data)){
         return null
     }
@@ -88,12 +85,6 @@ const PartnerPrizes = ({data=[], active=[], icons={}, full=false, points=0, posi
         return name
 
     }
-
-
-    if(full){
-        return "asd" 
-    }
-
 
     return data.map(prize => renderIcon(prize))
 }
