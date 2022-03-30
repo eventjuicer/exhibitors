@@ -3,20 +3,27 @@
 import { useSettings, useSetModal, usePublicCompanyData } from "../../../contexts"
 import { isEmpty, head, cloudinaryAddText, makeStyles } from '../../../helpers'
 import { Box, Grid, Avatar, Typography, CardImage, Button, Alert } from "../../../components"
+import PromoRawLink from './PromoRawLink'
 
-const DialogContent = ({code, imageUrl}) => {
+const DialogContent = ({imageUrl, link}) => {
 
 
-    return (<Box>
+    return (<Box mb={2}>
 
-    <Box maxWidth={600} maxHeight={600} mb={2}>
-    <img src={imageUrl} alt="" style={{maxWidth: 600, maxHeight: 600}} />
+    <Box textAlign="center">
+    <img src={imageUrl} alt="" style={{maxWidth: 600, maxHeight: 400}} />
     </Box>
 
-    <Alert label="resources.promote.banners.howto" type="info" />
-
-    <Box mt={2}>
-        {code}
+    <Box mt={3}>
+    <Typography label="common.option1" variant="h5" gutterBottom />
+    <Typography label="resources.promote.banners.save" variant="subtitle1" gutterBottom />
+    <PromoRawLink link={link} />
+    </Box>
+   
+    <Box mt={4}>
+    <Typography label="common.option2" variant="h5"  gutterBottom  />
+    <Typography label="resources.promote.banners.embed" variant="subtitle1"  gutterBottom  />
+    <PromoRawLink link={link} image={imageUrl} />
     </Box>
 
     </Box>)
@@ -25,7 +32,7 @@ const DialogContent = ({code, imageUrl}) => {
 
 
 
-const ImageWithBoothNumber = ({wrap, name, asset_id, text_xy, text_size, text_color="#fff", text_gravity= "south_west"}) => {
+const ImageWithBoothNumber = ({link, name, asset_id, text_xy, text_size, text_color="#fff", text_gravity= "south_west"}) => {
 
  const modal = useSetModal()
 
@@ -44,7 +51,8 @@ const ImageWithBoothNumber = ({wrap, name, asset_id, text_xy, text_size, text_co
 
  const imageUrl = transformedImage.toURL()
 
- const handleClick = () => modal("asd", <DialogContent imageUrl={imageUrl} code={wrap(imageUrl)} />) 
+
+ const handleClick = () => modal("common.download", <DialogContent imageUrl={imageUrl} link={link} />) 
 
  return <CardImage minWidth={200} maxWidth={400} height={150} buttons={<Button label="common.download" variant="text" onClick={handleClick} />} text={name} cover={false} image={imageUrl} onClick={handleClick} />
 
@@ -56,16 +64,17 @@ const ImageWithBoothNumber = ({wrap, name, asset_id, text_xy, text_size, text_co
 }
 
 
-const PromoBanners = ({wrap}) => {
+const PromoBanners = ({link=""}) => {
 
     const {banners} = useSettings("promoninja", [])
+
 
     if(isEmpty(banners)){
         return null
     }
    
     return (<Box m={2}><Grid container spacing={2}>{(banners || []).map((banner) => <Grid key={banner.name} item>
-       <ImageWithBoothNumber {...banner} wrap={wrap} />
+       <ImageWithBoothNumber {...banner} link={link} />
     </Grid>)}</Grid></Box>)
 }
 

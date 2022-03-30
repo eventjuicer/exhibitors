@@ -36,6 +36,7 @@ const useStyles = makeStyles({
 
 const PromoNewsletter = ({name, lang, content, newsletter}) => {
     const classes = useStyles()
+
     return (<Grid container direction="row" spacing={1}>
         <Grid item ><Button label=".zip" href={newsletter.zip} variant="outlined" /></Grid>
         <Grid item><Button label=".html" href={newsletter.html}  variant="outlined" /></Grid>

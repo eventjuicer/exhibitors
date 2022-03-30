@@ -47,24 +47,26 @@ const PartnerCreativesContent = ({ newsletters=[], links=[] }) => {
 
     const classes = useStyles()
     const translate = useTranslate()
-    const rawlink = links.find(Boolean) || {}
+    const rawlink = links.find(item => item.enabled) || {}
 
+    const has_custom_sharing = rawlink.name == "opengraph_image"
     
-    console.log({links, rawlink})
+    console.log({links, rawlink, has_custom_sharing})
 
     return (<Box mt={2}>
 
 
         <Box mb={6}>
-          <PromoBanners wrap={(image) => <PromoRawLink link={rawlink.link_full} image={image}  />}/>
+          <Typography variant="h6" label="resources.promote.banners.title" />
+          <PromoBanners link={rawlink.link_full}  />
         </Box> 
        
 
         <Box mb={6}>
 
         <Box mb={2}>
-        <Typography variant="h6" label="resources.newsletters.name" />
-        <Typography variant="body2" label="resources.creatives.newsletters.invite.description" />
+        <Typography variant="h6" label="resources.promote.newsletters.title" />
+   
         </Box>
 
         <Grid container spacing={5}>
@@ -72,7 +74,7 @@ const PartnerCreativesContent = ({ newsletters=[], links=[] }) => {
         {newsletters.map(item => (<Grid item key={item.id}>
         
         <EmailIcon className={classes.icon_near_text} /> 
-        <Typography label={`resources.creatives.langs.${item.lang}`} variant="body1" />
+        <Typography label={`common.langs.${item.lang}`} variant="body1" />
         
         <PromoNewsletter  {...item} /></Grid>))}
         </Grid>
@@ -81,12 +83,12 @@ const PartnerCreativesContent = ({ newsletters=[], links=[] }) => {
         
         <Box mb={6}>
         <Box mb={2}>
-        <Typography variant="h6" label="exhibitor.creatives.social.title" />
-        <Typography variant="body2" label="exhibitor.creatives.social.description" paragraph />
+        <Typography variant="h6" label="resources.promote.social.title" />
+ 
         </Box>    
         {links.map(item =><PromoLink key={item.id} {...item} />)}
 
-          <UpdateOpengraphImage />
+          <UpdateOpengraphImage enabled={has_custom_sharing} />
 
         </Box>
 
@@ -97,8 +99,8 @@ const PartnerCreativesContent = ({ newsletters=[], links=[] }) => {
 
         <Box mb={6} mt={2}>
         <Box mb={2}>
-        <Typography variant="h6" label="exhibitor.creatives.rawlink.title" />
-        <Typography variant="body2" label="exhibitor.creatives.rawlink.description" />
+        <Typography variant="h6" label="resources.promote.rawlink.title" />
+      
         </Box>
 
         <PromoRawLink link={rawlink.link_full}  />

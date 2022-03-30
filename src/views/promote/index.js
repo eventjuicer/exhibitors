@@ -4,7 +4,7 @@ import {
   Box, 
   Button,
   CompanySelector,
-  ResourceAbout
+  Alert
 } from '../../components';
 import { useSetModal, useResolveCompanyId, useCompany } from '../../contexts';
 import {
@@ -12,6 +12,7 @@ import {
   PartnerCreativesContent,
 } from './components'
 import PromoteIcon from '@material-ui/icons/VolumeUp'
+import { Loading } from 'react-admin';
 
 const CompanySelectorInModal = () => {
 
@@ -22,7 +23,15 @@ const CompanySelectorInModal = () => {
     return null
   }
   
-  return ( <Button label="common.reset" variant="text" onClick={() => modal("Search for a company", <CompanySelector decorateUrl={true} />) } />)
+  return ( <Box>
+
+    <Alert label="resources.promote.unknown-company" type="error" action={
+
+    <Button label="common.choose" variant="contained" onClick={() => modal("Search for a company", <CompanySelector decorateUrl={true} />) } />
+
+    } />
+
+    </Box>)
 }
 
 const Promote = () => {
@@ -30,27 +39,30 @@ const Promote = () => {
   useAddCompanyIdToUrl()
   useStoreCompanyId()
 
-  const {data} = useGet("/ranking", true)
+  const {data, loading, error} = useGet("/ranking", true)
   const company_id = useResolveCompanyId()
   const company = (data || []).find(item => item.company_id == company_id)
  
 
-  console.log({company, company_id})
+  if(error){
+    return <div>error</div>
+  }
+
+  if(loading){
+  return <Loading />
+  }
+
 
   if(!company){
-    return <CompanySelectorInModal />
+    return  <Box p={2}><CompanySelectorInModal /></Box>
   }else{
     return (
     <Box p={2}>
     
-      <CompanySelectorInModal />
-    
       <CompanyRankInfo logotype={company.logotype} setting="promoninja" />
 
-      {/* <Alert type="info" label="resources.promote.description" /> */}
+      <Alert type="info" label="resources.promote.howto" />
       
-      <ResourceAbout icon={PromoteIcon} descriptionLabel="logistics.timeline.items.promo.description" resource="promote" />
-
       <PartnerCreativesContent 
       links={ findInArrayOrObject(company.creatives, (item)=>item.act_as=="link") } 
       newsletters={ findInArrayOrObject(company.creatives, (item)=>item.act_as=="newsletter") } />
