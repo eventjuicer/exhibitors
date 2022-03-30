@@ -23,51 +23,52 @@ const settings = {
     banners: [
       {
         name: "twitter/linkedin/facebook 1920x1080",
-        asset_id:  "teh21/teh_twitter.png",
-        text_xy: [200, 100],
-        text_size: 200
+        asset_id:  "teh21/teh_fb_tt_li",
+        text_xy: [60, 80],
+        text_size: 150,
+        text_gravity: "south_east"
       },
       {
         name: "instagram 1080x1080",
-        asset_id:  "teh21/teh_instagram.png",
-        text_xy: [40, 60],
+        asset_id:  "teh21/teh_instagram",
+        text_xy: [40, 70],
         text_size: 140,
         text_gravity: "south_east"
       },
       
       {
         name: "468x60",
-        asset_id:  "teh21/teh_banner_468x60.png",
+        asset_id:  "teh21/teh_banner_468x60",
         text_xy: [20, 10],
         text_size: 30,
         text_gravity: "south_east"
       },
       {
         name: "336x280",
-        asset_id:  "teh21/teh_banner_336x280.png",
-        text_xy: [12, 20],
+        asset_id:  "teh21/teh_banner_336x280",
+        text_xy: [15, 30],
         text_size: 40,
         text_gravity: "south_east"
       },
       {
         name: "300x250",
-        asset_id:  "teh21/teh_banner_300x250.png",
-        text_xy: [10, 10],
-        text_size: 40,
+        asset_id:  "teh21/teh_banner_300x250",
+        text_xy: [10, 20],
+        text_size: 25,
         text_gravity: "south_east"
       },
     
       {
         name: "728x90",
-        asset_id:   "teh21/teh_banner_728x90.png",
-        text_xy: [80, 10],
-        text_size: 40,
+        asset_id:   "teh21/teh_banner_728x90",
+        text_xy: [25, 15],
+        text_size: 45,
         text_gravity: "south_east"
       },
       {
         name: "250x250", 
-        asset_id:   "teh21/teh_banner_250x250.png",
-        text_xy: [37, 17],
+        asset_id:   "teh21/teh_banner_250x250",
+        text_xy: [10, 17],
         text_size: 34,
         text_gravity: "south_east"
       }
@@ -235,12 +236,8 @@ const settings = {
                       icon: VolumeUpIcon,
                       edit: "/promote",
                       // check: true
-                    },
-                    {
-                      label: "vips",
-                      icon: VolumeUpIcon,
-                      // check: true
                     }
+                  
                   ]
                 },
                 {
@@ -252,6 +249,13 @@ const settings = {
                       icon: VolumeUpIcon,
                       // check: true
                     },
+
+                    {
+                      label: "vips",
+                      icon: VolumeUpIcon,
+                      // check: true
+                    },
+
                     {
                       label: "reps",
                       // check: true,
