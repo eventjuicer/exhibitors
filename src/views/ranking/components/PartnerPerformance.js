@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table, Typography, Grid, Avatar, ButtonLink, Search, Box } from '../../../components';
 import { makeStyles, useGet, isEmpty } from '../../../helpers'
-import { useTranslate } from 'react-admin'
+import { useTranslate, Loading } from 'react-admin'
 import PartnerPrizes from '../../rewards/components/PartnerPrizes'
 import * as icons from '../../rewards/icons'
 import { useToken, useSettings } from '../../../contexts';
@@ -90,8 +90,12 @@ const PartnerPerformance = ({icons, setting="", limit=undefined}) => {
 
    }, [filtered, data]);
 
-    if(loading || error){
+    if(error){
         return null
+    }
+
+    if(loading){
+      return <Loading />
     }
 
    return (
