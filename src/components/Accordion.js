@@ -74,7 +74,7 @@ const ActionButton = ({resource}) => {
   if(!resource){
     return null
   }
-  return <ButtonLink to={resource} label="common.edit" />
+  return <ButtonLink to={resource} label="common.details" />
 }
 
 

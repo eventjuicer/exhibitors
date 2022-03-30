@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     return (
    
         <Alert severity={type} action={action}>
-        <AlertTitle>{translate(`common.${type}`)}</AlertTitle>
+        {/* <AlertTitle>{translate(`common.${type}`)}</AlertTitle> */}
         <Markdown label={label}>{isString(children)? children: null}</Markdown>
         {!isString(children)? children: null}
         </Alert>

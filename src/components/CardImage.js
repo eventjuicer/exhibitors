@@ -17,7 +17,7 @@ const useStyles= ({minWidth, maxWidth, height, cover}) => makeStyles(theme => ({
 }))
 
 
-const CardImage = ({buttons, cover=true, minWidth=300, maxWidth=400, height=300, image, onClick, label, text}) => {
+const CardImage = ({buttons=null, cover=true, minWidth=300, maxWidth=400, height=300, image=null, onClick, label=null, text=null}) => {
 
     const classes = useStyles({minWidth, maxWidth, height, cover})()
 
@@ -25,7 +25,7 @@ const CardImage = ({buttons, cover=true, minWidth=300, maxWidth=400, height=300,
             <CardActionArea onClick={onClick} >
             <CardMedia  className={classes.media} title="" image={image} />
             <CardContent>
-            <Typography variant="h6" label={label}>{text}</Typography>
+            <Typography variant="subtitle1" label={label}>{text}</Typography>
             </CardContent>
             </CardActionArea>
             <CardActions>{buttons}</CardActions>
