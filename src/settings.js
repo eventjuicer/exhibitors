@@ -18,7 +18,7 @@ const settings = {
 
   promoninja: {
   //  event_id: 95, //teh 20 - 89, teh21 - 95
-    show_points: true,
+    show_points: false,
 
     banners: [
       {
@@ -52,20 +52,22 @@ const settings = {
       {
         name: "300x250",
         asset_id:  "teh21/teh_banner_300x250.png",
-        text_xy: [200, 100],
-        text_size: 200
+        text_xy: [10, 10],
+        text_size: 40,
+        text_gravity: "south_east"
       },
     
       {
         name: "728x90",
         asset_id:   "teh21/teh_banner_728x90.png",
-        text_xy: [200, 100],
-        text_size: 200
+        text_xy: [80, 10],
+        text_size: 40,
+        text_gravity: "south_east"
       },
       {
         name: "250x250", 
         asset_id:   "teh21/teh_banner_250x250.png",
-        text_xy: [17, 17],
+        text_xy: [37, 17],
         text_size: 34,
         text_gravity: "south_east"
       }
@@ -157,8 +159,8 @@ const settings = {
 
     {name: "promo", icon: VolumeUpIcon, children: [
       "premium",
-      // "ranking",
-      // "creatives",
+      "ranking",
+      "promote",
       // "invite-vip",
       // "posts"
     ]},
@@ -231,6 +233,7 @@ const settings = {
                     {
                       label: "promo",
                       icon: VolumeUpIcon,
+                      edit: "/promote",
                       // check: true
                     },
                     {
