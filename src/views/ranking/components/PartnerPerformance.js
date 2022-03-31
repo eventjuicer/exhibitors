@@ -38,6 +38,9 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 }));
 
 
+
+
+
 const AvatarWithCompanyName = ({logotype=null, name=""}) => {
 
   const classes = useStyles()
@@ -52,10 +55,9 @@ const AvatarWithCompanyName = ({logotype=null, name=""}) => {
     </Grid>)
 }
 
-const PointsWithPrizes = ({setting="", assigned=[], points=0 }) => {
+const PointsWithPrizes = ({setting="", data=[], loading=true, error=false, assigned=[], points=0 }) => {
 
   const {show_points} = useSettings(setting, {})
-  const {data, loading, error} = useGet("/prizes", true);
   const classes = useStyles()
 
   if(loading){
@@ -78,11 +80,11 @@ const PointsWithPrizes = ({setting="", assigned=[], points=0 }) => {
 
 const PartnerPerformance = ({icons, setting="", limit=undefined}) => {
    
-
-  const {event_id} = useSettings(setting, {})
-
+   const {event_id} = useSettings(setting, {})
    const classes = useStyles()
    const {data, loading, error} = useGet("/ranking", true);
+   const prizes = useGet("/prizes", true);
+
    const user = useToken()
    const translate = useTranslate()
    const [filtered, setFiltered] = React.useState([])
@@ -117,7 +119,7 @@ const PartnerPerformance = ({icons, setting="", limit=undefined}) => {
     <Table showHeader={true} baseLabel="fields." rows={filtered} columns={[
       // {stats.position},
       {name: "cname2", render: (row) => <AvatarWithCompanyName logotype={row.logotype} name={row.name} />},
-      {name: "prizes", render: (row) => <PointsWithPrizes setting={setting} assigned={row.stats.prizes} points={row.stats.sessions} /> },
+      {name: "prizes", render: (row) => <PointsWithPrizes {...prizes} setting={setting} assigned={row.stats.prizes} points={row.stats.sessions} /> },
       ...(user? []: [{name: "promote", render: (row) => <ButtonLink to={`/promote`} query={{company_id: row.company_id}} variant="outlined" label="resources.promote.menu" startIcon={<PromoteIcon />} /> }])
 
 ]} />
