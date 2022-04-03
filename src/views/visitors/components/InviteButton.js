@@ -1,46 +1,20 @@
 import React from 'react';
 import Icon from '@material-ui/icons/InsertInvitation';
 import { ButtonLink } from '../../../components';
-
+import { useLimit } from '../../../contexts';
 
 const InviteButton = ({
   basePath = '',
-  limits,
-  locale,
   record = {},
   resource,
 
 }) => {
 
-  /**
-   * 
-   * check limits!
-   *  if out of limit - DISABLE BUTTON
-   */
+  const limit = useLimit("meetups")
 
-  // return get(limits, resource, true) ? (
-  //   <Button
-  //     primary
-  //     label={translate("resources.visitors.actions.invite")}
-  //     icon={<Icon />}
-  //     containerElement={
-  //       <Link
-  //         to={{
-  //           pathname: `/meetups/create`,
-  //           search: stringify({ participant_id: record.id })
-  //           //search: stringify({ filter: JSON.stringify({ category_id: record.id }) }),
-  //         }}
-  //       />
-  //     }
-  //   />
-  // ) : (
-  //   <Button
-  //     disabled
-  //     label={translate('resources.visitors.actions.invite')}
-  //     icon={<Icon />}
-  //     //  onClick={()=>alert("asd")}
-  //   />
-  // );
+  if(!record){
+    return null
+  }
 
   return (<ButtonLink 
     to="/meetups/create" 
@@ -50,6 +24,7 @@ const InviteButton = ({
     label="resources.visitors.actions.invite" 
     startIcon={<Icon />} 
     variant="outlined"
+    disabled={limit <= 0}
   />)
 
 }

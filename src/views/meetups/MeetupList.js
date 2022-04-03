@@ -14,6 +14,8 @@ import StatusAwareDeleteButton from './components/StatusAwareDeleteButton';
 import _get from 'lodash/get'
 import { ResourceAbout, ResourceTitle } from '../../components';
 import {TextFieldShort} from '../../fields'
+import {LimitsContextProvider, useLimit} from '../../contexts'
+
 
 const filters = [
   <SelectInput
@@ -22,7 +24,7 @@ const filters = [
     choices={[
       { id: 'agreed', name: 'resources.meetups.fields.status.agreed' },
       { id: 'rejected', name: 'resources.meetups.fields.status.rejected' },
-      { id: 'scheduled', name: 'resources.meetups.fields.status.scheduled' }
+      // { id: 'scheduled', name: 'resources.meetups.fields.status.scheduled' }
     ]}
     alwaysOn
     
@@ -65,7 +67,7 @@ FullNameField.defaultProps = {
 
 const ViewList = props => (
   
-   
+  <LimitsContextProvider>
 
   <List
     {...props}
@@ -101,6 +103,8 @@ const ViewList = props => (
   
   </List>
 
+  </LimitsContextProvider> 
+  
 );
 
 export default ViewList;
