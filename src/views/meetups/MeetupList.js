@@ -2,32 +2,38 @@ import React from 'react';
 import {
   Datagrid,
   EditButton,
-  Filter,
   List,
   TextField,
-  SelectInput
+  SelectInput,
+  FilterButton,
+  TopToolbar
 } from 'react-admin';
 
 import StatusField from './components/StatusField';
 import StatusAwareDeleteButton from './components/StatusAwareDeleteButton';
-import ListActions from './ListActions';
 import _get from 'lodash/get'
-import { Aside, ResourceTitle } from '../../components';
+import { ResourceAbout, ResourceTitle } from '../../components';
+import {TextFieldShort} from '../../fields'
 
-const ViewFilter = props => (
-  <Filter {...props} >
-    {/*    <TextInput label="pos.search" source="q" alwaysOn /> */}
-    <SelectInput
-      source="status"
-      allowEmpty
-      choices={[
-        { id: 'agreed', name: 'resources.meetups.fields.status.agreed' },
-        { id: 'rejected', name: 'resources.meetups.fields.status.rejected' },
-        { id: 'scheduled', name: 'resources.meetups.fields.status.scheduled' }
-      ]}
-    />
-  </Filter>
-);
+const filters = [
+  <SelectInput
+    source="status"
+    allowEmpty
+    choices={[
+      { id: 'agreed', name: 'resources.meetups.fields.status.agreed' },
+      { id: 'rejected', name: 'resources.meetups.fields.status.rejected' },
+      { id: 'scheduled', name: 'resources.meetups.fields.status.scheduled' }
+    ]}
+    alwaysOn
+    
+  />
+]
+
+const ListActions = (props) => (
+  <TopToolbar>
+      <FilterButton/>
+  </TopToolbar>
+  )
 
 /*
 <h4 style={{}}>
@@ -63,14 +69,11 @@ const ViewList = props => (
 
   <List
     {...props}
-    actions={<ListActions />}
-    //  actions={null}
-    filters={<ViewFilter />}
+    actions={ <ListActions /> }
+    filters={ filters }
     //  sort={{ field: 'cname2', order: 'ASC' }}
     perPage={50}
-    aside={
-      <Aside ></Aside>
-    }
+    aside={ <ResourceAbout {...props} aside={true} />}
     title={ <ResourceTitle {...props} />}
   >
 
@@ -87,7 +90,7 @@ const ViewList = props => (
         sortable={false}
       />
 
-      <TextField source="message"  sortable={false} />
+      <TextFieldShort limit={20} source="message"  sortable={false} />
       <TextField source="comment" sortable={false} />
 
       <StatusField label="status" sortable={false} />

@@ -1,28 +1,21 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { DeleteButton, useTranslate } from 'react-admin';
 import IconButton from '@material-ui/core/IconButton';
 import IconDelete from '@material-ui/icons/Delete';
-import { showModal } from '../../../redux/actions';
 import { status } from './status';
+import { useSetModal } from '../../../contexts';
+import { Box } from '../../../components';
 
 const StatusAwareDeleteButton = props => {
-  const translate = useTranslate()
-  const dispatch = useDispatch()
+
+  const modal = useSetModal()
 
   const intStatus = status(props.record);
 
   return intStatus === -3 ? (
     <DeleteButton {...props} />
   ) : (
-    <IconButton
-      onClick={() =>
-        dispatch(showModal({
-          title: 'Sorry!',
-          body: 'You can only delete before sending....'
-        }))
-      }
-    >
+    <IconButton onClick={() => modal('Sorry!', <Box>You can only delete before sending....</Box>)} >
       <IconDelete color="#cccccc" />
     </IconButton>
   );
