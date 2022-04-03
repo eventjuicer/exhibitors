@@ -57,6 +57,9 @@ export const getCompanyId = () => {
   return getUserData('company.id', 0);
 };
 
+
+export const vipCodeUrl = (slug, code) => getFullUrl(`/exhibitors/${slug}?vipcode=${code}`)
+
 export const getProfileUrl = (params = "") => {
 
   let url = getFullUrl(`exhibitors/${getUserData('company.slug')}`)

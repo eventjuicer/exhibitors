@@ -103,6 +103,14 @@ export const useGet = (path, usePublicApi=false) => {
 
 }
 
+
+export const useCompanyDataItem = (name) => {
+
+  const {data, loading, error} = useGet("companydata", false)
+  return (data || []).find(item => item.name == name) || {} 
+
+}
+
 export const useSearchParams = () => {
   const { search } = useLocation()
   return new URLSearchParams(search);
