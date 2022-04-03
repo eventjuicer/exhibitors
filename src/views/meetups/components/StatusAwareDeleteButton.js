@@ -1,24 +1,20 @@
 import React from 'react';
-import { DeleteButton, useTranslate } from 'react-admin';
-import IconButton from '@material-ui/core/IconButton';
-import IconDelete from '@material-ui/icons/Delete';
-import { status } from './status';
-import { useSetModal } from '../../../contexts';
-import { Box } from '../../../components';
+import { DeleteButton } from 'react-admin';
 
-const StatusAwareDeleteButton = props => {
+const StatusAwareDeleteButton = (props) => {
 
-  const modal = useSetModal()
+  if(!props.record ){
+    return null
+  }
 
-  const intStatus = status(props.record);
+  const {sent_at} = props.record
 
-  return intStatus === -3 ? (
-    <DeleteButton {...props} />
-  ) : (
-    <IconButton onClick={() => modal('Sorry!', <Box>You can only delete before sending....</Box>)} >
-      <IconDelete color="#cccccc" />
-    </IconButton>
-  );
+  if(sent_at){
+    return null
+  }
+  
+  return <DeleteButton {...props} />
+
 }
 
 export default StatusAwareDeleteButton
