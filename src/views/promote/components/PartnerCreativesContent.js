@@ -2,9 +2,8 @@
 
 
 import { useTranslate } from 'react-admin'
-import { Typography, Box, Grid } from '../../../components'
+import { Typography, Box, Grid, DisplayAndCopyToClipboardText } from '../../../components'
 import { makeStyles } from '../../../helpers'
-import PromoRawLink from "./PromoRawLink"
 import PromoNewsletter from "./PromoNewsletter"
 import PromoLink from "./PromoLink"
 import PromoBanners from "./PromoBanners"
@@ -103,7 +102,7 @@ const PartnerCreativesContent = ({ newsletters=[], links=[] }) => {
       
         </Box>
 
-        <PromoRawLink link={rawlink.link_full}  />
+        <DisplayAndCopyToClipboardText link={rawlink.link_full}  />
 
         </Box>
 

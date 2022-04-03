@@ -2,8 +2,7 @@
 
 import { useSettings, useSetModal, usePublicCompanyData } from "../../../contexts"
 import { isEmpty, head, cloudinaryAddText, makeStyles } from '../../../helpers'
-import { Box, Grid, Avatar, Typography, CardImage, Button, Alert } from "../../../components"
-import PromoRawLink from './PromoRawLink'
+import { Box, Grid, Avatar, Typography, CardImage, Button, Alert, DisplayAndCopyToClipboardText } from "../../../components"
 
 const DialogContent = ({imageUrl, link}) => {
 
@@ -17,13 +16,13 @@ const DialogContent = ({imageUrl, link}) => {
     <Box mt={3}>
     <Typography label="common.option1" variant="h5" gutterBottom />
     <Typography label="resources.promote.banners.save" variant="subtitle1" gutterBottom />
-    <PromoRawLink link={link} />
+    <DisplayAndCopyToClipboardText link={link} />
     </Box>
    
     <Box mt={4}>
     <Typography label="common.option2" variant="h5"  gutterBottom  />
     <Typography label="resources.promote.banners.embed" variant="subtitle1"  gutterBottom  />
-    <PromoRawLink link={link} image={imageUrl} />
+    <DisplayAndCopyToClipboardText link={link} image={imageUrl} />
     </Box>
 
     </Box>)
