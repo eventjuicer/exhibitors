@@ -150,16 +150,16 @@ const settings = {
       "vouchers",
     ]},
 
-    {name: "leads", icon: RecentActorsIcon, children: [
+    //{name: "leads", icon: RecentActorsIcon, children: [
       
-      "visitors",
-      "meetups",
+      // "visitors",
+      // "meetups",
 
       // "requests",
      
       // "vipcodes",
       // "scans"
-    ]},
+    //]},
 
     {name: "promo", icon: VolumeUpIcon, children: [
       "premium",
