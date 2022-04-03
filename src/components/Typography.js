@@ -3,9 +3,9 @@ import {useTranslate} from 'react-admin'
 import Typography from '@material-ui/core/Typography'
 
 
-const DefaultTypography = ({children, pre="", post="", label=null, ...rest}) => {
+const DefaultTypography = ({children, pre="", post="", label=null, labelProps={}, ...rest}) => {
   const translate = useTranslate()
-  const translated = label ? translate(label) : children
+  const translated = label ? translate(label, labelProps) : children
   return <Typography {...rest} gutterBottom>{pre}{translated}{post}</Typography>
 }
 

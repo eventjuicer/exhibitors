@@ -41,7 +41,6 @@ export {default as Search} from './Search'
 export {default as Dropzone} from './Dropzone'
 export {default as UploadAndSyncImage} from './UploadAndSyncImage'
 export {default as UrlWatcher} from './UrlWatcher'
-export {default as Aside} from './Aside'
 export {default as Support} from './Support'
 export {default as Photogrid} from './Photogrid'
 
@@ -58,6 +57,10 @@ export {default as ChangeCompanyLang} from './ChangeCompanyLang'
 export {default as Vercel} from './Vercel'
 export {default as Section} from './Section'
 export {default as ImageWithText} from './ImageWithText'
+export {default as DisplayAndCopyToClipboardText} from './DisplayAndCopyToClipboardText'
+
+
+
 
 
 export {default as Grid} from '@material-ui/core/Grid'
