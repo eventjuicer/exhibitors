@@ -14,12 +14,11 @@ import { PremiumList, PremiumShow, PremiumIcon } from './views/premium';
 import { ArrangementList, ArrangementShow, ArrangementIcon } from './views/arrangement';
 import { VoucherList, VoucherShow, VoucherIcon } from './views/vouchers';
 import { SpecialList, SpecialEdit, SpecialIcon} from './views/offers';
-
-import { ViewList as MeetupList, ViewEdit as MeetupEdit, ViewCreate as MeetupCreate } from './views/meetups';
-import { ViewList as VisitorList, /** ViewEdit as VisitorEdit, ViewEdit as VisitorShow,*/ } from './views/visitors';
-import { ViewList as ScanList, ViewEdit as ScanEdit } from './views/scans';
+import { MeetupList, MeetupEdit, MeetupCreate, MeetupIcon } from './views/meetups';
+import { ScanList, ScanEdit, ScanIcon } from './views/scans';
+import { VisitorList, VisitorIcon } from './views/visitors';
 import { PostList, PostEdit, PostCreate} from './views/posts';
-import { VipList} from './views/vips';
+import { VipList, VipIcon } from './views/vipcodes';
 
 
 // import { ViewList as NewsletterList } from './views/newsletters';
@@ -43,11 +42,11 @@ const resources =  [
   <Resource key="vouchers" name="vouchers" list={VoucherList} show={VoucherShow} icon={VoucherIcon} />,
   <Resource key="specials" name="specials" list={SpecialList} edit={SpecialEdit} icon={SpecialIcon} />,
 
-  <Resource key="meetups" name="meetups" list={MeetupList} edit={MeetupEdit} create={MeetupCreate} />,
-  <Resource key="visitors" name="visitors" list={VisitorList} />,
-  <Resource key="scans" name="scans" list={ScanList} edit={ScanEdit} />,
+  <Resource key="meetups" name="meetups" list={MeetupList} edit={MeetupEdit} create={MeetupCreate} icon={MeetupIcon} />,
+  <Resource key="visitors" name="visitors" list={VisitorList} icon={VisitorIcon} />,
+  <Resource key="scans" name="scans" list={ScanList} edit={ScanEdit} icon={ScanIcon} />,
   <Resource key="posts" name="posts" list={PostList} edit={PostEdit} create={PostCreate} />,
-  <Resource key="vips" name="vips" list={VipList}  />,
+  <Resource key="vipcodes" name="vipcodes" list={VipList} icon={VipIcon}  />,
 
   // <Resource key="requests" name="requests" list={RequestList}  />,
   // <Resource key="banners" name="banners" list={BannerList} />,
