@@ -5,19 +5,18 @@ import {
     UploadAndSyncImage, 
     Alert
 } from '../../../components'
-import { useGet } from '../../../helpers'
+
+import { useCompanyDataItem } from '../../../helpers'
 import { useCompany } from '../../../contexts'
 
 const UpdateOpengraphImage = ({enabled=false}) => {
 
     const company_id = useCompany("id")
-    const {data, loading, error} = useGet("companydata", false)
+    const opengraph = useCompanyDataItem("opengraph_image")
 
-    if(!company_id || !data || loading || error){
+    if(!company_id || !("id" in opengraph) ){
         return   <Alert label={`resources.promote.opengraph_image.${enabled? "enabled": "disabled"}`} type="info" />
     }
-
-    const opengraph = data.find(item => item.name == "opengraph_image") 
 
     return (
         <Grid container spacing={2}>
