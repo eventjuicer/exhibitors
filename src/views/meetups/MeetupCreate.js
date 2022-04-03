@@ -11,6 +11,7 @@ import {
   maxLength,
 
   useRedirect,
+  useRefresh,
   useGetOne
 } from 'react-admin';
 
@@ -45,6 +46,7 @@ const MeetupCreate = props => {
   const params = useSearchParams()
   const {value} = useCompanyDataItem("invitation_template")
   const redirect = useRedirect();
+  const refresh = useRefresh();
 
   useEffect(() => {
     if(!params.has("participant_id")){
@@ -52,9 +54,13 @@ const MeetupCreate = props => {
     }
   }, [ params.toString() ])
 
+  const onSuccess = () => {
+    redirect('/meetups');
+    refresh()
+  }
 
   return (
-    <Create title="aor.page.meeting_request" {...props}  >
+    <Create title="aor.page.meeting_request" {...props} onSuccess={onSuccess}  >
       <SimpleForm submitOnEnter={false}>
         
         <MeetupCreateUserInfo />

@@ -92,7 +92,7 @@ const ViewList = props => (
         sortable={false}
       />
 
-      <TextFieldShort limit={20} source="message"  sortable={false} />
+     
       <TextField source="comment" sortable={false} />
 
       <StatusField label="status" sortable={false} />
