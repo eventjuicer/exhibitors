@@ -47,31 +47,10 @@ function* onResourceUpdate(data) {
   }
 }
 
-function* onPurchaseCreateSuccess({payload}){
 
-  yield put(showNotification('common.statuses.success'));
-  yield put(push('/purchases'));
-  yield put(showModal({
-    title : "Status",
-  //  body : <ConfirmationBox action="buy" data={payload} />
-  }))
-}
-
-function* onPurchaseUpdateSuccess({payload}){
-
-  yield put(showNotification('common.statuses.success'));
-  yield put(push('/purchases'));
-  yield put(showModal({
-    title : "Status",
-  //  body : <ConfirmationBox action="remove" data={payload} />
-  }))
-}
 
 export default function* saga() {
   yield all([
-
-    takeEvery(PURCHASE_CREATE_SUCCESS, onPurchaseCreateSuccess),
-    takeEvery(PURCHASE_UPDATE_SUCCESS, onPurchaseUpdateSuccess),
 
     takeEvery(CRUD_UPDATE_SUCCESS, onResourceUpdate),
 //    takeEvery(CRUD_CREATE_SUCCESS, handleSlackNotification),
