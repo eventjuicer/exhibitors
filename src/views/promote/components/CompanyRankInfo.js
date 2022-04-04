@@ -1,12 +1,10 @@
 import React from 'react'
-import { resizeCloudinaryImage, grey, makeStyles } from '../../../helpers'
+import { resizeCloudinaryImage, makeStyles } from '../../../helpers'
 import { useTranslate } from 'react-admin'
-import {Avatar, Box, Paper, Grid, Typography, ButtonLink} from '../../../components'
+import {Avatar, Box, Grid, Typography, ButtonLink, GreyPaper} from '../../../components'
 import {RankingIcon} from '../../ranking'
 import HourglassEmpty from '@material-ui/icons/HourglassEmpty'
 import { useSettings } from '../../../contexts'
-
-
 
  const useStyles = makeStyles({
 
@@ -18,22 +16,14 @@ import { useSettings } from '../../../contexts'
     objectFit: "contain",
     maxHeight: "85%",
     maxWidth: "85%",
-  },
-  stats: {
-    maxWidth: 400,
-    padding: 10,
-    backgroundColor: grey[300],
-    marginBottom: 20
   }
 });
-
 
 const CompanyRankInfo = ({setting="", logotype="", sessions = 0, position = 0}) => {
    
    const classes = useStyles()
    const translate = useTranslate()
    const {show_points} = useSettings(setting, {})
-
 
     return (<Box mb={8}>
 
@@ -45,7 +35,7 @@ const CompanyRankInfo = ({setting="", logotype="", sessions = 0, position = 0}) 
         }}/>
       </Grid>
       <Grid item>
-        <Paper className={classes.stats}>
+        <GreyPaper>
           <Grid container spacing={1} justifyContent="center">
           <Grid item>
           <Typography gutterBottom align="center" variant="body1" label="common.points" />
@@ -58,9 +48,8 @@ const CompanyRankInfo = ({setting="", logotype="", sessions = 0, position = 0}) 
           </Grid>
 
           <ButtonLink label="resources.promote.show_ranking" startIcon={<RankingIcon />} to="ranking" variant="text" />
-          
-
-        </Paper>
+        
+        </GreyPaper>
       </Grid>
     </Grid>
 

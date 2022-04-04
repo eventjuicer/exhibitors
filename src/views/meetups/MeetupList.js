@@ -15,7 +15,7 @@ import _get from 'lodash/get'
 import { ResourceAbout, ResourceTitle } from '../../components';
 import {TextFieldShort} from '../../fields'
 import {LimitsContextProvider, useLimit} from '../../contexts'
-
+import { MeetupIcon } from '.';
 
 const filters = [
   <SelectInput
@@ -68,43 +68,32 @@ FullNameField.defaultProps = {
 const ViewList = props => (
   
   <LimitsContextProvider>
-
   <List
     {...props}
     actions={ <ListActions /> }
     filters={ filters }
     //  sort={{ field: 'cname2', order: 'ASC' }}
     perPage={50}
-    aside={ <ResourceAbout {...props} aside={true} />}
+    aside={ <ResourceAbout {...props} icon={MeetupIcon} aside={true} />}
     title={ <ResourceTitle {...props} />}
+    empty={<ResourceAbout {...props} icon={MeetupIcon}  aside={false} /> }
   >
-
-
     <Datagrid>
-
       <FullNameField
         source="participant.profile"
         sortable={false}
       />
-
       <TextField
         source="participant.profile.cname2"
         sortable={false}
       />
-
-     
       <TextField source="comment" sortable={false} />
-
       <StatusField label="status" sortable={false} />
       <EditButton />
-
       <StatusAwareDeleteButton />
     </Datagrid>
-  
   </List>
-
   </LimitsContextProvider> 
-  
 );
 
 export default ViewList;
