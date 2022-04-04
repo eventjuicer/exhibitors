@@ -16,6 +16,8 @@ import { ResourceAbout, ResourceTitle } from '../../components';
 import {TextFieldShort} from '../../fields'
 import {LimitsContextProvider, useLimit} from '../../contexts'
 import { MeetupIcon } from '.';
+import withLogin from '../withLogin';
+
 
 const filters = [
   <SelectInput
@@ -65,7 +67,11 @@ FullNameField.defaultProps = {
   label: 'resources.meetups.fields.participant.name'
 }
 
-const ViewList = props => (
+
+const Aside = (props) => <ResourceAbout {...props} icon={MeetupIcon}  />
+
+
+const MeetupList = props => (
   
   <LimitsContextProvider>
   <List
@@ -74,9 +80,9 @@ const ViewList = props => (
     filters={ filters }
     //  sort={{ field: 'cname2', order: 'ASC' }}
     perPage={50}
-    aside={ <ResourceAbout {...props} icon={MeetupIcon} aside={true} />}
     title={ <ResourceTitle {...props} />}
-    empty={<ResourceAbout {...props} icon={MeetupIcon}  aside={false} /> }
+    aside={ <Aside {...props} aside={true} /> }
+    empty={  <Aside {...props} aside={false} /> }
   >
     <Datagrid>
       <FullNameField
@@ -96,4 +102,5 @@ const ViewList = props => (
   </LimitsContextProvider> 
 );
 
-export default ViewList;
+
+export default withLogin(MeetupList, <Aside aside={false} /> )  
