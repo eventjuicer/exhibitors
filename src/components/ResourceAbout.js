@@ -56,7 +56,7 @@ const useStyles = aside => makeStyles(theme => ({
 }))
 
 
-const ResourceAbout = ({icon=null, resource="", aside=false, descriptionLabel=null, buttons=null }) => {
+const ResourceAbout = ({icon=null, resource="", aside=false, descriptionLabel=null, pre=null, buttons=null }) => {
     const { basePath } = useListContext();
     const classes = useStyles(aside)()
     const isMobile = useIsMobile()
@@ -67,6 +67,8 @@ const ResourceAbout = ({icon=null, resource="", aside=false, descriptionLabel=nu
         })} elevation={aside? 0: 0}>
            
            <CardContent>
+
+            {pre}
 
            <Grid container justifyContent="center" alignItems="center" direction={aside? "column": "row"}>
                 <Grid item xs={12} sm={12} md={2}>{icon? React.createElement(icon, {className: classes.icon}): null}</Grid>

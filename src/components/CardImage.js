@@ -17,15 +17,15 @@ const useStyles= ({minWidth, maxWidth, height, cover}) => makeStyles(theme => ({
 }))
 
 
-const CardImage = ({buttons=null, cover=true, minWidth=300, maxWidth=400, height=300, image=null, onClick, label=null, text=null}) => {
+const CardImage = ({buttons=null, cover=true, minWidth=300, maxWidth=400, height=300, image=null, onClick, label=null, labelProps={}, text=null}) => {
 
     const classes = useStyles({minWidth, maxWidth, height, cover})()
 
     return (<Card className={classes.root}>
             <CardActionArea onClick={onClick} >
-            <CardMedia  className={classes.media} title="" image={image} />
+            {image? <CardMedia  className={classes.media} title="" image={image} />: null}
             <CardContent>
-            <Typography variant="subtitle1" label={label}>{text}</Typography>
+            <Typography variant="subtitle1" label={label} labelProps={labelProps}>{text}</Typography>
             </CardContent>
             </CardActionArea>
             <CardActions>{buttons}</CardActions>

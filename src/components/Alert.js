@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
   
- function CustomAlert({type="warning", label, children=null, action=null }) {
+ function CustomAlert({type="warning", label, translationParams={}, children=null, action=null }) {
     const classes = useStyles();
     const translate = useTranslate()
 
