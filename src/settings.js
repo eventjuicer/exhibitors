@@ -16,6 +16,18 @@ import {getLocalesArray} from './i18n'
 
 const settings = {
 
+  visitors: {
+
+    excluded_domains: [
+      "gmail.",
+      "home.",
+      "interia.",
+      "onet.",
+      "wp.pl",
+      "o2.pl",
+    ]
+  },
+
   promoninja: {
   //  event_id: 95, //teh 20 - 89, teh21 - 95
     show_points: false,
@@ -150,16 +162,16 @@ const settings = {
       "vouchers",
     ]},
 
-    //{name: "leads", icon: RecentActorsIcon, children: [
+    {name: "leads", icon: RecentActorsIcon, children: [
       
-      // "visitors",
-      // "meetups",
+      "visitors",
+      "meetups",
 
       // "requests",
      
       // "vipcodes",
       // "scans"
-    //]},
+    ]},
 
     {name: "promo", icon: VolumeUpIcon, children: [
       "premium",
@@ -250,14 +262,15 @@ const settings = {
                     {
                       label: "meetups",
                       icon: VolumeUpIcon,
+                      edit: "/visitors",
                       // check: true
                     },
 
-                    {
-                      label: "vips",
-                      icon: VolumeUpIcon,
-                      // check: true
-                    },
+                    // {
+                    //   label: "vips",
+                    //   icon: VolumeUpIcon,
+                    //   // check: true
+                    // },
 
                     {
                       label: "reps",
