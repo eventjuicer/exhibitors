@@ -11,18 +11,14 @@ const EditButton = ({ record = {}, basePath, resource}) => {
     const {code, participant, blocked_till} = record
 
     const handleClick = () => {
-        modal(`resources.${resource}.use`, <VipcodeUseModal record={record} />)
+        modal(`resources.${resource}.actions.options`, <VipcodeUseModal record={record} />)
     }
 
-    if(participant){
-        return <Button disabled label={`resources.${resource}.used`} />
+    if(participant || blocked_till){
+        return <Button disabled label={`common.used`} />
     }
 
-    if(blocked_till){
-        return <Button disabled label={`resources.${resource}.blocked`} />
-    }
-
-    return (<Button variant="outlined" label={`resources.${resource}.use`} onClick={handleClick} />)
+    return (<Button variant="outlined" label={`resources.${resource}.actions.use`} onClick={handleClick} />)
 
 }
 

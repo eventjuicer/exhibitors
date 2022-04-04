@@ -14,6 +14,8 @@ const Aside = (props) => (
   <ResourceAbout 
   {...props}
   resource="vipcodes" 
+  label="logistics.timeline.items.vips.title"
+  descriptionLabel="logistics.timeline.items.vips.description"
   aside={true} 
   icon={ VipIcon } 
   buttons={<ButtonLink to="promote" label="resources.promote.menu" startIcon={<PromoteIcon />} variant="text" />}
@@ -63,8 +65,8 @@ const VipList = props => {
   >
       <Datagrid>
   
-        <TextFieldShort source="code" limit="20" sortable={false} />
-        <IsVipcodeSent source="email" />
+        <TextFieldShort source="code" limit="10" sortable={false} />
+        <IsVipcodeSent label="fields.recipient" source="email" />
         <IsVipcodeUsed source="participant" />
         <UseVipcodeButton />
         

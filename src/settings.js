@@ -166,10 +166,10 @@ const settings = {
       
       "visitors",
       "meetups",
-
+      // "vips",
       // "requests",
      
-      // "vipcodes",
+    
       // "scans"
     ]},
 
@@ -263,7 +263,7 @@ const settings = {
                       label: "meetups",
                       icon: VolumeUpIcon,
                       edit: "/visitors",
-                      // check: true
+                      check: "/checks/meetups"
                     },
 
                     // {
@@ -274,7 +274,7 @@ const settings = {
 
                     {
                       label: "reps",
-                      // check: true,
+                      check: "/checks/representatives",
                       important: true,
                       icon : BuildIcon,
                       edit: "/representatives",

@@ -42,7 +42,7 @@ const VipcodeUseModal = ({record}) => {
 
     <Box mb={5}>
     <Typography label="common.option1" variant="h5"  gutterBottom  />
-    <Typography label="resources.vipcodes.use-via-email" variant="body1" paragraph />
+    <Typography label="resources.vipcodes.actions.use-via-email" variant="body1" paragraph />
 
     <TextField autoFocus required error={Boolean(hasError)} onChange={handleChange} multiline={false} value={email} fullWidth={true} variant="outlined" label="E-mail" helperText={hasError && hasError.message } />
     <Button disabled={Boolean(!email || hasError || loading)} onClick={handleSubmit} label="common.send" />
@@ -51,7 +51,7 @@ const VipcodeUseModal = ({record}) => {
    
     <Box mb={5}>
     <Typography label="common.option2" variant="h5" gutterBottom />
-    <Typography label="resources.vipcodes.use-manually" variant="body1" paragraph />
+    <Typography label="resources.vipcodes.actions.use-manually" variant="body1" paragraph />
 
     <DisplayAndCopyToClipboardText link={inviteUrl} />
     </Box>
