@@ -59,6 +59,7 @@ export {default as Section} from './Section'
 export {default as ImageWithText} from './ImageWithText'
 export {default as DisplayAndCopyToClipboardText} from './DisplayAndCopyToClipboardText'
 export {default as GreyPaper} from './GreyPaper'
+export {default as Tutorial} from './Tutorial'
 
 
 
