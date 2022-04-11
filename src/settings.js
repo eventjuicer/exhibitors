@@ -190,11 +190,11 @@ const settings = {
       
       "visitors",
       "meetups",
-      // "vips",
+      "vips",
       // "requests",
      
     
-      // "scans"
+      "badgescanner"
     ]},
 
     {name: "promo", icon: VolumeUpIcon, children: [
@@ -285,16 +285,17 @@ const settings = {
                   items: [
                     {
                       label: "meetups",
-                      icon: VolumeUpIcon,
+                      icon: RecentActorsIcon,
                       edit: "/visitors",
                       check: "/checks/meetups"
                     },
 
-                    // {
-                    //   label: "vips",
-                    //   icon: VolumeUpIcon,
-                    //   // check: true
-                    // },
+                    {
+                      label: "vips",
+                      icon: RecentActorsIcon,
+                      // check: true,
+                      edit: "/vips",
+                    },
 
                     {
                       label: "reps",
