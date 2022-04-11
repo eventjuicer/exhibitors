@@ -46,7 +46,7 @@ const resources =  [
   <Resource key="visitors" name="visitors" list={VisitorList} icon={VisitorIcon} />,
   <Resource key="scans" name="scans" list={ScanList} edit={ScanEdit} icon={ScanIcon} />,
   <Resource key="posts" name="posts" list={PostList} edit={PostEdit} create={PostCreate} />,
-  <Resource key="vipcodes" name="vips" list={VipList} icon={VipIcon}  />,
+  <Resource key="vips" name="vips" list={VipList} icon={VipIcon}  />,
 
   // <Resource key="requests" name="requests" list={RequestList}  />,
   // <Resource key="banners" name="banners" list={BannerList} />,

@@ -28,7 +28,7 @@ const VipcodeUseModal = ({record}) => {
     }
 
     const handleSubmit = () => {
-        update('vipcodes', id, {email}, record, {
+        update('vips', id, {email}, record, {
             onSuccess: () => {
 
                 close()
