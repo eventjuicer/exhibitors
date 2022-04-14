@@ -194,7 +194,7 @@ const settings = {
       // "requests",
      
     
-      "badgescanner"
+      "scans"
     ]},
 
     {name: "promo", icon: VolumeUpIcon, children: [
