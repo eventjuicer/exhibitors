@@ -182,28 +182,28 @@ const settings = {
       "logistics",
       "representatives",
       // "register/party",
-      "arrangement",
-      "vouchers",
+      // "arrangement",
+      // "vouchers",
     ]},
 
-    {name: "leads", icon: RecentActorsIcon, children: [
+    // {name: "leads", icon: RecentActorsIcon, children: [
       
-      "visitors",
-      "meetups",
-      "vips",
-      // "requests",
+    //   // "visitors",
+    //   // "meetups",
+    //   // "vips",
+    //   // "requests",
      
     
-      "scans"
-    ]},
+    //   // "scans"
+    // ]},
 
-    {name: "promo", icon: VolumeUpIcon, children: [
-      "premium",
-      "ranking",
-      "promote",
+    // {name: "promo", icon: VolumeUpIcon, children: [
+      // "premium",
+      // "ranking",
+      // "promote",
       // "invite-vip",
       // "posts"
-    ]},
+    // ]},
 
 
   ],
@@ -241,7 +241,7 @@ const settings = {
                     {
                       label: "arrangement",
                       check: "/checks/arrangement",
-                      edit: "/arrangement",
+                      // edit: "/arrangement",
                       icon: BuildIcon,
                       details: <CompanyPurchases  />,
                       buttons: [
@@ -251,7 +251,7 @@ const settings = {
                     },
                     {
                       label: "premium",
-                      edit: "/premium",
+                      // edit: "/premium",
                       icon: VolumeUpIcon,
                       details: <CompanyPurchases filter={(item)=>item.featured} />
                     }
@@ -264,7 +264,7 @@ const settings = {
                     {
                       label: "arrangement",
                       // check: true,
-                      edit: "/arrangement",
+                      // edit: "/arrangement",
                       important: true,
                       icon: BuildIcon,
                       details: <CompanyPurchases  />
@@ -273,7 +273,7 @@ const settings = {
                     {
                       label: "promo",
                       icon: VolumeUpIcon,
-                      edit: "/promote",
+                      // edit: "/promote",
                       // check: true
                     }
                   
@@ -286,7 +286,7 @@ const settings = {
                     {
                       label: "meetups",
                       icon: RecentActorsIcon,
-                      edit: "/visitors",
+                      // edit: "/visitors",
                       check: "/checks/meetups"
                     },
 
@@ -294,7 +294,7 @@ const settings = {
                       label: "vips",
                       icon: RecentActorsIcon,
                       // check: true,
-                      edit: "/vips",
+                      // edit: "/vips",
                     },
 
                     {
@@ -307,7 +307,7 @@ const settings = {
                     {
                       label: "vouchers",
                       icon: BuildIcon,
-                      edit: "/vouchers",
+                      // edit: "/vouchers",
                       important: true,
                       // check: true
                     },
