@@ -174,37 +174,32 @@ const settings = {
 
    menuItems: [
     {name: "profile", icon: BusinessIcon, children: [
-      "companydata", 
-      "people",
-      "purchases"
+      {name: "companydata", visible: true}, 
+      {name: "people", visible: true}, 
+      {name: "purchases", visible: true}, 
     ]},
     {name: "event", icon: BuildIcon, children: [
-      "logistics",
-      "representatives",
-      // "register/party",
-       "arrangement",
-      "vouchers",
+      {name: "logistics", visible: true}, 
+      {name: "representatives", visible: true}, 
+      {name: "arrangement", visible: true}, 
+      {name: "vouchers", visible: true}, 
+      {name: "register/party", visible: false}, 
     ]},
 
-    // {name: "leads", icon: RecentActorsIcon, children: [
-      
-    //   // "visitors",
-    //   // "meetups",
-    //   // "vips",
-    //   // "requests",
-     
-    
-    //   // "scans"
-    // ]},
+    {name: "leads", icon: RecentActorsIcon, children: [
+      {name: "visitors", visible: false}, 
+      {name: "meetups", visible: false}, 
+      {name: "vips", visible: false}, 
+     // {name: "requests", visible: false}, 
+      {name: "scans", visible: false}, 
+    ]},
 
-     {name: "promo", icon: VolumeUpIcon, children: [
-      "premium",
-      // "ranking",
-      // "promote",
-      // "invite-vip",
-      // "posts"
-     ]},
-
+    {name: "promo", icon: VolumeUpIcon, children: [
+      {name: "premium", visible: true}, 
+      {name: "ranking", visible: false}, 
+      {name: "promote", visible: false}, 
+      {name: "posts", visible: false}, 
+    ]},
 
   ],
 
@@ -247,7 +242,7 @@ const settings = {
                       buttons: [
                         // <BuyTicketByNameButton key="clearspace" name="clearspace" />
                       ]
-                      //filter={(item) => item.role=="service_external"}
+                      // filter={(item) => item.role=="service_external"}
                     },
                     {
                       label: "premium",
@@ -307,7 +302,7 @@ const settings = {
                     {
                       label: "vouchers",
                       icon: BuildIcon,
-                      edit: "/vouchers",
+                      // edit: "/vouchers",
                       important: true,
                       // check: true
                     },

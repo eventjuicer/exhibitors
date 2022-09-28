@@ -28,6 +28,7 @@ import grey from '@material-ui/core/colors/grey';
 import classNames from 'classnames';
 import resources from '../resources'
 import { useLocation } from 'react-router-dom';
+import { useHasFullAccess } from '../contexts';
 
 import {
     Typography, 
@@ -101,6 +102,7 @@ const CustomMenuContainer = ({children, ...props}) => {
     )
 }
 
+
 const CustomMenu = (props) => {
     // const isXSmall = useMediaQuery(theme => theme.breakpoints.down('xs'));
     const [open, toggleSidebar] = useToggleSidebar()
@@ -108,17 +110,20 @@ const CustomMenu = (props) => {
 
     const menuItems = useSettings("menuItems")
     const permissions = usePermissions()
+    const hasFullAccess = useHasFullAccess()
     const translate = useTranslate()
     const classes = useStyles();
     // const resources = useSelector(getResources);
     const {pathname} = useLocation()
 
+    /** create subpage-category object to know which category should be expanded */
     const mappedMenuItems = menuItems.reduce((prev,current)=>{
         const children = current.children.reduce((_prev, _current)=>{
-            return {..._prev, [_current]: current.name}
+            return {..._prev, [_current.name]: current.name}
         }, {})
         return {...prev, ...children}
     }, {})  
+
 
     React.useEffect(() => {
 
@@ -178,16 +183,16 @@ const CustomMenu = (props) => {
             
                 <div className={classes.list}>
 
-                {category.children.map(category_name => {
+                {category.children.map(category_child => {
                     
-                    const resource = resources.find(res => res.props.name === category_name)
+                    const resource = resources.find(res => res.props.name === category_child.name)
                     
-                    if(resource){
+                    if(resource && (category_child.visible || hasFullAccess )){
                         
                         const {options, icon, name} = resource.props
 
                         return (<MenuItemLink
-                            key={category_name}
+                            key={category_child.name}
                             className={classes.menuItem}
                             to={`/${name}`}
                             primaryText={options && "label" in options && options.label ? translate(options.label) : translate(`resources.${name}.menu`) }
@@ -196,22 +201,22 @@ const CustomMenu = (props) => {
                             sidebarIsOpen={open}
                             />)
                     }
-                    const route = customRoutes.find(route => route.props.path.substring(1) === category_name)
+                    const route = customRoutes.find(route => route.props.path.substring(1) === category_child.name)
 
                     if(route){
                       
                         return (<MenuItemLink
-                            key={category_name}
+                            key={category_child.name}
                             className={classes.menuItem}
                             to={route.props.path}
-                            primaryText={translate(`resources.${category_name}.menu`)}
+                            primaryText={translate(`resources.${category_child.name}.menu`)}
                             leftIcon={"icon" in route.props ? <route.props.icon /> : <DefaultIcon />}
                             onClick={props.onMenuClick}
                             sidebarIsOpen={open}
                             />)
                     }
                 
-                    return category_name
+                    return category_child.name
                 })}    
                
                 </div>

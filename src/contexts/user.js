@@ -24,6 +24,17 @@ export const useCompany = (path = "id", replacement) => {
     return get(profile, `company.${path}`, replacement); 
 }
 
+export const useCompanyId = () => {
+    const {profile} = React.useContext(UserContextContainer)  
+    return get(profile, `company.id`, 0); 
+}
+
+export const useHasFullAccess = () => {
+    const company_id = useCompanyId()
+    return company_id && `${process.env.REACT_APP_FULL_ACCESS_ACCOUNT}` == company_id
+}
+
+
 export const useLoginSuccess = () => {
     const {setProfile, setToken} = React.useContext(UserContextContainer)  
     return React.useCallback(({token, data}) => {
