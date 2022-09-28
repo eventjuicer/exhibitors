@@ -182,8 +182,8 @@ const settings = {
       "logistics",
       "representatives",
       // "register/party",
-      // "arrangement",
-      // "vouchers",
+       "arrangement",
+      "vouchers",
     ]},
 
     // {name: "leads", icon: RecentActorsIcon, children: [
@@ -197,13 +197,13 @@ const settings = {
     //   // "scans"
     // ]},
 
-    // {name: "promo", icon: VolumeUpIcon, children: [
-      // "premium",
+     {name: "promo", icon: VolumeUpIcon, children: [
+      "premium",
       // "ranking",
       // "promote",
       // "invite-vip",
       // "posts"
-    // ]},
+     ]},
 
 
   ],
@@ -241,7 +241,7 @@ const settings = {
                     {
                       label: "arrangement",
                       check: "/checks/arrangement",
-                      // edit: "/arrangement",
+                      edit: "/arrangement",
                       icon: BuildIcon,
                       details: <CompanyPurchases  />,
                       buttons: [
@@ -251,7 +251,7 @@ const settings = {
                     },
                     {
                       label: "premium",
-                      // edit: "/premium",
+                      edit: "/premium",
                       icon: VolumeUpIcon,
                       details: <CompanyPurchases filter={(item)=>item.featured} />
                     }
@@ -263,8 +263,8 @@ const settings = {
                   items: [
                     {
                       label: "arrangement",
-                      // check: true,
-                      // edit: "/arrangement",
+                      check: "/checks/arrangement",
+                      edit: "/arrangement",
                       important: true,
                       icon: BuildIcon,
                       details: <CompanyPurchases  />
@@ -307,7 +307,7 @@ const settings = {
                     {
                       label: "vouchers",
                       icon: BuildIcon,
-                      // edit: "/vouchers",
+                      edit: "/vouchers",
                       important: true,
                       // check: true
                     },
