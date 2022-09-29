@@ -116,6 +116,8 @@ const CustomMenu = (props) => {
     // const resources = useSelector(getResources);
     const {pathname} = useLocation()
 
+
+
     /** create subpage-category object to know which category should be expanded */
     const mappedMenuItems = menuItems.reduce((prev,current)=>{
         const children = current.children.reduce((_prev, _current)=>{
@@ -163,6 +165,14 @@ const CustomMenu = (props) => {
         <CustomMenuContainer {...props}>
           
         {menuItems.map((category) => {
+
+            /**
+             * check if we have some publicly visible elements!
+             */
+
+            if(!category.children.some(child => child.visible) && !hasFullAccess){
+                return null
+            }
         
             return (
                 <Accordion 
@@ -203,7 +213,7 @@ const CustomMenu = (props) => {
                     }
                     const route = customRoutes.find(route => route.props.path.substring(1) === category_child.name)
 
-                    if(route){
+                    if(route && (category_child.visible || hasFullAccess )){
                       
                         return (<MenuItemLink
                             key={category_child.name}
@@ -216,7 +226,7 @@ const CustomMenu = (props) => {
                             />)
                     }
                 
-                    return category_child.name
+                    return null
                 })}    
                
                 </div>
