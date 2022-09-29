@@ -195,9 +195,14 @@ const CustomMenu = (props) => {
 
                 {category.children.map(category_child => {
                     
+
+                    if(!category_child.visible && !hasFullAccess){
+                        return null
+                    }
+
                     const resource = resources.find(res => res.props.name === category_child.name)
                     
-                    if(resource && (category_child.visible || hasFullAccess )){
+                    if(resource){
                         
                         const {options, icon, name} = resource.props
 
@@ -213,7 +218,7 @@ const CustomMenu = (props) => {
                     }
                     const route = customRoutes.find(route => route.props.path.substring(1) === category_child.name)
 
-                    if(route && (category_child.visible || hasFullAccess )){
+                    if(route){
                       
                         return (<MenuItemLink
                             key={category_child.name}
