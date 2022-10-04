@@ -72,6 +72,9 @@ const useStyles = makeStyles((theme) => ({
         paddingLeft: 0,
         whiteSpace: "unset"
     },
+    menuItemHidden: {
+        textDecoration: "line-through"
+    }
   }));
 
 
@@ -153,6 +156,8 @@ const CustomMenu = (props) => {
        setExpanded(isExpanded ? panel : "");
     }
 
+    const isPubliclyVisible = (category_child) => category_child.visible || hasFullAccess
+
     if(!open){
 
         return ( <CustomMenuContainer {...props}>
@@ -170,7 +175,7 @@ const CustomMenu = (props) => {
              * check if we have some publicly visible elements!
              */
 
-            if(!category.children.some(child => child.visible) && !hasFullAccess){
+            if(!category.children.some(category_child => isPubliclyVisible(category_child) )) {
                 return null
             }
         
@@ -196,7 +201,7 @@ const CustomMenu = (props) => {
                 {category.children.map(category_child => {
                     
 
-                    if(!category_child.visible && !hasFullAccess){
+                    if( !isPubliclyVisible(category_child) ){
                         return null
                     }
 
@@ -208,7 +213,10 @@ const CustomMenu = (props) => {
 
                         return (<MenuItemLink
                             key={category_child.name}
-                            className={classes.menuItem}
+                            className={classNames(
+                                classes.menuItem,
+                                {[classes.menuItemHidden]: !category_child.visible }
+                            )}
                             to={`/${name}`}
                             primaryText={options && "label" in options && options.label ? translate(options.label) : translate(`resources.${name}.menu`) }
                             leftIcon={icon ? React.createElement(icon, {}) : <DefaultIcon />}
@@ -222,7 +230,10 @@ const CustomMenu = (props) => {
                       
                         return (<MenuItemLink
                             key={category_child.name}
-                            className={classes.menuItem}
+                            className={classNames(
+                                classes.menuItem,
+                                {[classes.menuItemHidden]: !category_child.visible }
+                            )}
                             to={route.props.path}
                             primaryText={translate(`resources.${category_child.name}.menu`)}
                             leftIcon={"icon" in route.props ? <route.props.icon /> : <DefaultIcon />}
