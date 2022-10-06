@@ -189,7 +189,7 @@ const settings = {
     {name: "leads", icon: RecentActorsIcon, children: [
       {name: "visitors", visible: false}, 
       {name: "meetups", visible: false}, 
-      {name: "vips", visible: false}, 
+      {name: "vips", visible: true}, 
      // {name: "requests", visible: false}, 
       {name: "scans", visible: false}, 
     ]},
@@ -289,7 +289,7 @@ const settings = {
                       label: "vips",
                       icon: RecentActorsIcon,
                       // check: true,
-                      // edit: "/vips",
+                       edit: "/vips",
                     },
 
                     {
