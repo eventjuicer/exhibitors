@@ -8,3 +8,6 @@ export {default as Meetups} from '@material-ui/icons/Event'
 export {default as Blog} from '@material-ui/icons/Description'
 export {default as Rollups} from '@material-ui/icons/VolumeUp'
 export {default as Leaflets} from '@material-ui/icons/MenuBook';
+export {default as Vip} from '@material-ui/icons/Weekend';
+export {default as Scanner} from '@material-ui/icons/MobileFriendly';
+export {default as Floor} from '@material-ui/icons/Texture';
