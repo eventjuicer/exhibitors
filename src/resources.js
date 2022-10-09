@@ -19,6 +19,7 @@ import { ScanList, ScanEdit, ScanIcon } from './views/scans';
 import { VisitorList, VisitorIcon } from './views/visitors';
 import { PostList, PostEdit, PostCreate} from './views/posts';
 import { VipList, VipIcon } from './views/vips';
+import { RequestList, RequestIcon} from './views/requests';
 
 
 // import { ViewList as NewsletterList } from './views/newsletters';
@@ -26,7 +27,6 @@ import { VipList, VipIcon } from './views/vips';
 // import { ViewList as ImportList, ViewCreate as ImportCreate, ViewEdit as ImportEdit } from './views/imports';
 // import { ViewList as ContactList, ViewEdit as ContactEdit } from './views/contacts';
 // import { ViewList as ContactlistList, ViewCreate as ContactlistCreate, ViewEdit as ContactlistEdit } from './views/contactlists';
-// import { RequestList} from './views/requests';
 // import { ViewList as BannerList } from './views/__banners';
 
 
@@ -48,7 +48,7 @@ const resources =  [
   <Resource key="posts" name="posts" list={PostList} edit={PostEdit} create={PostCreate} />,
   <Resource key="vips" name="vips" list={VipList} icon={VipIcon}  />,
 
-  // <Resource key="requests" name="requests" list={RequestList}  />,
+  <Resource key="requests" name="requests" list={RequestList}  />,
   // <Resource key="banners" name="banners" list={BannerList} />,
   // <Resource key="imports" name="imports" list={ImportList} edit={ImportEdit} create={ImportCreate} />,
   // <Resource key="contactlists" name="contactlists" list={ContactlistList} edit={ContactlistEdit} create={ContactlistCreate} />,
