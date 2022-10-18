@@ -79,7 +79,7 @@ const MeetupList = props => (
   >
     <Datagrid>
 
-      <RsvpTypeIcon sortable={false} label="asd" />
+      <RsvpTypeIcon sortable={false} label="Typ" />
       <ContactDataField sortable={false}/>
     
       <P2CMeetupAcceptRejectButtons  label="Status" sortable={false} />
