@@ -8,8 +8,9 @@ import {usePurchase} from '../../../contexts'
 import PurchaseStatus from './PurchaseStatus';
 import PurchasedTicket from './PurchasedTicket';
 import PurchaseRevoke from './PurchaseRevoke'
-
 import {Typography} from '../../../components'
+import { useCompanyId } from '../../../contexts';
+
 
 const useStyles = makeStyles(theme => ({
 
@@ -31,6 +32,11 @@ const useStyles = makeStyles(theme => ({
 const PurchaseStatusAndPrice = ({amount=0, ok=true}) => {
 
     const classes = useStyles()
+    const id = useCompanyId()
+
+    if(!id || id==1565){
+        return null
+    }
 
     return (
         <Grid container alignItems='center' justifyContent='space-evenly'>
