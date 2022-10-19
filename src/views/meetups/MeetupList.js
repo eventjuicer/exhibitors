@@ -32,6 +32,8 @@ const filters = [
   choices={[
     { id: 'P2C', name: 'resources.meetups.fields.direction.p2c' },
     { id: 'C2P', name: 'resources.meetups.fields.direction.c2p' },
+    { id: 'LTD', name: 'resources.meetups.fields.direction.ltd' },
+
   ]}
   alwaysOn
   

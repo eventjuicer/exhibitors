@@ -67,27 +67,15 @@ const P2CMeetupAcceptRejectButtons = ({record, resource, ...rest}) => {
         return <BlockIcon className={classes.iconOff} />
     }
 
-
-    if(record.direction == "P2C"){
-
-      
+    if(record.direction == "P2C" || record.direction == "LTD"){
 
         return (<span className={classes.root}>
-
         <Button variant="outlined" onClick={() => handleChangeAgreed(1)} label="common.accept" startIcon={ <CheckCircleIcon /> } />
         <Button variant="outlined" color="default" onClick={()=>  handleChangeAgreed(0)} label="common.reject" startIcon={ <BlockIcon  /> } />
-
-        
         </span>)
     }else{
-
-        
-       
-        
-          return <TimerIcon />
-
+        return <TimerIcon />
     }
-
 
 }
 
