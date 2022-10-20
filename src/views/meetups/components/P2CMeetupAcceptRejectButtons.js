@@ -12,15 +12,13 @@ import classNames from "classnames";
 import TimerIcon from '@material-ui/icons/Timer';
 import CheckCircleIcon from '@material-ui/icons/CheckCircleOutline';
 import { Button } from "../../../components";
+import { Typography, Grid } from "../../../components";
+import { grey } from "@material-ui/core/colors";
+
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         flexDirection: 'row'
-    },
-    button: {
-        padding: 2
-
-
     },
     icon: {
         fontSize: 30
@@ -31,8 +29,17 @@ const useStyles = makeStyles((theme) => ({
     iconOff: {
         color: "red"
     },
+    gray: {
+        backgroundColor: grey[100],
+        color: "#000",
+        padding: 5,
+        marginBottom: 10
+    }
 
 }));
+
+
+ 
 
 const P2CMeetupAcceptRejectButtons = ({record, resource, ...rest}) => {
 
@@ -40,42 +47,46 @@ const P2CMeetupAcceptRejectButtons = ({record, resource, ...rest}) => {
     const refresh = useRefresh();
     const notify = useNotify();
     const classes = useStyles();
-    const [flag, setFlag] = useState(null);
 
     const [update, { loading, error }] = useUpdate();
-
 
     const handleChangeAgreed = (agreed) => update(resource, id, {agreed}, record, {
             onSuccess: () => {
                 refresh();
                 notify(`${resource} updated`);
-                setFlag(null)
             },
             onFailure: () => notify('Error: item not updated', 'warning'),
     })
-
 
     if(!record){
         return null
     }
 
     if(record.agreed){
-        return <CheckCircleIcon className={classes.iconOn} />
+        return <CheckCircleIcon className={classNames(classes.icon, classes.iconOn)} />
     }
 
     if(record.responded_at && !record.agreed){
-        return <BlockIcon className={classes.iconOff} />
+        return <BlockIcon className={classNames(classes.icon, classes.iconOff)} />
     }
 
     if(record.direction == "P2C" || record.direction == "LTD"){
-
         return (<span className={classes.root}>
-        <Button variant="outlined" onClick={() => handleChangeAgreed(1)} label="common.accept" startIcon={ <CheckCircleIcon /> } />
-        <Button variant="outlined" color="default" onClick={()=>  handleChangeAgreed(0)} label="common.reject" startIcon={ <BlockIcon  /> } />
-        </span>)
-    }else{
-        return <TimerIcon />
+            <Grid container>
+                <Grid item>
+                <Typography className={classes.gray} label={`resources.meetups.${record.direction}`.toLowerCase()} variant="overline" />
+                </Grid>
+                <Grid item>
+                <Button variant="outlined" onClick={() => handleChangeAgreed(1) } label="common.accept" startIcon={ <CheckCircleIcon /> } />
+                <Button variant="outlined" color="default" onClick={()=>  handleChangeAgreed(0)} label="common.reject" startIcon={ <BlockIcon  /> } />
+                </Grid>
+            </Grid>
+            </span>)
     }
+
+    return <TimerIcon />
+
+   
 
 }
 
