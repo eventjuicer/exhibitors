@@ -13,7 +13,7 @@ import TimerIcon from '@material-ui/icons/Timer';
 import CheckCircleIcon from '@material-ui/icons/CheckCircleOutline';
 import { Button } from "../../../components";
 import { Typography, Grid } from "../../../components";
-import { grey } from "@material-ui/core/colors";
+import { grey, yellow, green } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,6 +34,12 @@ const useStyles = makeStyles((theme) => ({
         color: "#000",
         padding: 5,
         marginBottom: 10
+    },
+    ltd: {
+        backgroundColor: yellow[100],
+    },
+    p2c: {
+        backgroundColor: green[100],
     }
 
 }));
@@ -74,7 +80,10 @@ const P2CMeetupAcceptRejectButtons = ({record, resource, ...rest}) => {
         return (<span className={classes.root}>
             <Grid container>
                 <Grid item>
-                <Typography className={classes.gray} label={`resources.meetups.${record.direction}`.toLowerCase()} variant="overline" />
+                <Typography className={classNames(classes.gray, {
+                    [classes.ltd]: record.direction == "LTD",
+                    [classes.p2c]: record.direction == "P2C"
+                })} label={`resources.meetups.${record.direction}`.toLowerCase()} variant="overline" />
                 </Grid>
                 <Grid item>
                 <Button variant="outlined" onClick={() => handleChangeAgreed(1) } label="common.accept" startIcon={ <CheckCircleIcon /> } />
