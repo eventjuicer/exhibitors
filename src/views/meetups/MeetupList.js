@@ -64,6 +64,20 @@ const ListActions = (props) => (
 
 const Aside = (props) => <ResourceAbout {...props} icon={MeetupIcon}  />
 
+const AcceptRejectAwareEditButton = (props) => {
+
+  if(!props.record){
+    return null
+  }
+
+  if("responded_at" in props.record && !props.record.responded_at){
+    return null
+  }
+
+  return ( <EditButton {...props} label="comment" />)
+
+}
+
 
 const MeetupList = props => (
   
@@ -87,7 +101,7 @@ const MeetupList = props => (
       <P2CMeetupAcceptRejectButtons  label="Status" sortable={false} />
 
       <TextField source="comment" sortable={false} />
-      <EditButton label="comment" />
+     <AcceptRejectAwareEditButton />
       {/* <StatusAwareDeleteButton /> */}
     </Datagrid>
   </List>
