@@ -3,9 +3,8 @@ import Typography  from "./Typography"
 import Box from '@material-ui/core/Box'
 import Avatar from '@material-ui/core/Avatar'
 import Grid from '@material-ui/core/Grid'
-
-import { useSettings } from "../contexts"
-
+import { useGet, isEmpty } from '../helpers';
+import { useSettings, useToken } from "../contexts"
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -21,8 +20,12 @@ const useStyles = makeStyles((theme) => ({
 const Support = () => {
     const people = useSettings("support")
     const classes = useStyles();
+    const token = useToken();
+    const {data, checking, error} = useGet(token? "/support": null);
 
-    if(!people || !Array.isArray(people)){
+    console.log(data)
+
+    if(!people || !Array.isArray(people) || isEmpty(people)){
       return null
     }
 
