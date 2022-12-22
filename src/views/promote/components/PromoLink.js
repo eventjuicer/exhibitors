@@ -1,9 +1,10 @@
 import React from 'react'
 import { Grid, Box, CopyToClipboardButton, Button } from "../../../components"
-import { makeStyles, capitalizeFirstLetter } from "../../../helpers"
+import { makeStyles, capitalizeFirstLetter, isObject } from "../../../helpers"
 import Facebook from '@material-ui/icons/Facebook'
 import Twitter from '@material-ui/icons/Twitter'
 import Linkedin from '@material-ui/icons/LinkedIn'
+
 const icons = {Facebook, Twitter, Linkedin}
 
 
@@ -40,9 +41,15 @@ const useStyles = makeStyles({
 
 const PromoLink = ({link_full, sharable, enabled, sharers}) => {
     const classes = useStyles()
+    
     if(!enabled){
         return null
     }
+
+    if(!isObject(sharers)){
+      return null
+    }
+
     return <div>{Object.keys(sharers).map(service => {
         const link = sharers[service]
         const icon = (large=false) => React.createElement(icons[capitalizeFirstLetter(service)], {fontSize: large? "large": "medium"})
