@@ -21,6 +21,23 @@ export const useSettings = (path = null, fallback = undefined) => {
 }
 
 
+export const useMenuItemsContext = (setting="menuItems") => {
+
+    const menuItems = useSettings(setting)
+
+    return React.useMemo(()=> {
+
+        return {
+            enabled: Array.isArray(menuItems)? menuItems.reduce((prev, current)=>{
+                const children = current.children.filter(item => item.visible).map(item => item.name)
+                return [...prev, ...children]
+              }, []): [] 
+        }
+
+    }, [menuItems])
+
+}
+
 export const SettingsContext = ({data={}, children}) => {
     const [settings, setSettingsFunc] = React.useState(data)
     const setSettings = React.useCallback((test) => setSettingsFunc(test))

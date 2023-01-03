@@ -10,7 +10,7 @@ export * from './access'
 export * from './timedate'
 export {isString, isObject, isFunction, get, isEmpty, merge, isEqual, find, size, groupBy, head, sortBy, orderBy, map} from 'lodash'
 
-export {useSettings, useModal, useSetModal} from '../contexts'
+export {useSettings, useMenuItemsContext, useModal, useSetModal} from '../contexts'
 
 export { grey } from '@material-ui/core/colors'
 export { makeStyles } from '@material-ui/core/styles';

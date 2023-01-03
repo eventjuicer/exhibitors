@@ -16,8 +16,9 @@ import Markdown  from './Markdown';
 import CopyToClipboardButtonWithUrl from './CopyToClipboardButtonWithUrl'
 import CheckableStatus from './CheckableStatus'
 import Chip from './Chip'
-import {get, useIsMobile} from '../helpers'
+import {get, useIsMobile, useMenuItemsContext} from '../helpers'
 import ButtonLink from './ButtonLink'
+import Button from './Button'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -71,9 +72,17 @@ const ItemImportant = ({active=false}) => {
 }
 
 const ActionButton = ({resource}) => {
+
+  const {enabled} = useMenuItemsContext("menuItems")
+
   if(!resource){
     return null
   }
+
+  if(Array.isArray(enabled) && !enabled.includes( resource.replace(/^\//, "") ) ){
+    return <Button disabled label="common.not_yet_available" />
+  }
+
   return <ButtonLink to={resource} label="common.details" />
 }
 
