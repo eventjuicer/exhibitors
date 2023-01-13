@@ -35,11 +35,11 @@ const ImageWithBoothNumber = ({link, name, asset_id, text_xy, text_size, text_co
 
  const modal = useSetModal()
 
- const boothIds = usePublicCompanyData()
+ const {boothNames} = usePublicCompanyData()
 
  const transformedImage = cloudinaryAddText({
     asset_id,
-    content: head(boothIds) || "A0.0",
+    content: head(boothNames) || "A0.0",
     text_xy,
     text_size,
     text_gravity,
