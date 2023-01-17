@@ -62,7 +62,7 @@ const ListActions = (props) => (
 
 
 
-const Aside = (props) => <ResourceAbout {...props} icon={MeetupIcon}  />
+const Aside = (props) => <ResourceAbout {...props} showCreate={false} icon={MeetupIcon}  />
 
 
 const MeetupList = props => (
