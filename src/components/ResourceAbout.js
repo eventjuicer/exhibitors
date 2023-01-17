@@ -56,7 +56,7 @@ const useStyles = aside => makeStyles(theme => ({
 }))
 
 
-const ResourceAbout = ({icon=null, resource="", aside=false, label=null, descriptionLabel=null, pre=null, buttons=null }) => {
+const ResourceAbout = ({icon=null, resource="", showCreate=true, aside=false, label=null, descriptionLabel=null, pre=null, buttons=null }) => {
     const { basePath } = useListContext();
     const classes = useStyles(aside)()
     const isMobile = useIsMobile()
@@ -77,7 +77,7 @@ const ResourceAbout = ({icon=null, resource="", aside=false, label=null, descrip
                     <Box className={classes.texts}>
                     <Typography variant={aside || isMobile? "h5": "h4"} paragraph label={label || `resources.${resource}.menu`} />
                     <Markdown label={descriptionLabel || `resources.${resource}.info`} />
-                    {!aside && basePath ? <CreateButton basePath={basePath} /> : null}
+                    {showCreate && basePath ? <CreateButton basePath={basePath} /> : null}
                     {buttons}
                     </Box>
 
