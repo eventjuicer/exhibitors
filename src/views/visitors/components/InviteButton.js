@@ -2,6 +2,10 @@ import React from 'react';
 import Icon from '@material-ui/icons/InsertInvitation';
 import { ButtonLink } from '../../../components';
 import { useLimit } from '../../../contexts';
+import { useMeetups } from '../../../helpers'
+
+
+
 
 const InviteButton = ({
   basePath = '',
@@ -11,6 +15,7 @@ const InviteButton = ({
 }) => {
 
   const limit = useLimit("meetups")
+  const meetups = useMeetups("C2P", "participant.id");
 
   if(!record){
     return null
@@ -24,7 +29,7 @@ const InviteButton = ({
     label="resources.visitors.actions.invite" 
     startIcon={<Icon />} 
     variant="outlined"
-    disabled={limit <= 0}
+    disabled={limit <= 0 || meetups.includes(record.id) }
   />)
 
 }

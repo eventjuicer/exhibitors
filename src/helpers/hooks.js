@@ -1,6 +1,6 @@
 
 import React, {useContext, useCallback} from 'react'
-import { useLocale, DataProviderContext, useNotify, useRedirect, useRefresh } from 'react-admin'
+import { useLocale, DataProviderContext, useNotify, useRedirect, useRefresh, useGetList } from 'react-admin'
 import {useSettings, useToken, useCompany} from '../contexts'
 import { lsSet, lsGet } from './storage'
 import { useLocation, useHistory } from 'react-router-dom' 
@@ -200,5 +200,17 @@ export const useOnEdit = (to="/", callback, msg="common.success") => {
 
   }, [to, msg, callback])
 
+}
+
+
+export const useMeetups = (direction="C2P", path="participant.id") => {
+
+  const { data, ids, loading, error } = useGetList("meetups");
+
+  if(loading || error){
+    return []
+  }
+
+  return Object.values(data).filter(item => direction? item.direction == direction: true).map(item => get(item, path) )
 }
 
