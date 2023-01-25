@@ -45,7 +45,12 @@ const fields = [
 />,
 
 
+<TextInput
+key="phone"
+source="profile.phone"
+validate={ [number(),  minLength(8), maxLength(20)] }
 
+/>
 
 
 ]
