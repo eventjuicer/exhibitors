@@ -33,7 +33,7 @@ import { RequestList, RequestIcon} from './views/requests';
 const resources =  [
   <Resource key="people" name="people" list={PeopleList} edit={PeopleEdit} create={PeopleCreate} icon={PeopleIcon} />,
   <Resource key="representatives" name="representatives" list={RepresentativeList} edit={RepresentativeEdit} create={RepresentativeCreate} icon={RepresentativeIcon} />,
-  <Resource key="party-participants" name="party-participants" list={PartyList} edit={PartyEdit} create={PartyCreate} icon={PartyIcon} />,
+  <Resource key="party" name="party" list={PartyList} edit={PartyEdit} create={PartyCreate} icon={PartyIcon} />,
   <Resource key="companydata" name="companydata" list={CompanyDataList} edit={CompanyDataEdit} icon={CompanyDataIcon}/>,
   <Resource key="purchases" name="purchases" list={PurchaseList} icon={PurchaseIcon} />,  
   <Resource key="upgrades" name="upgrades" list={UpgradeList} show={UpgradeShow} icon={UpgradeIcon} />,

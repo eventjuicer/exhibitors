@@ -8,9 +8,9 @@ import {
 
 import withLogin from '../withLogin';
 import { ResourceAbout, ResourceTitle} from '../../components'
-import { RepresentativeIcon } from '.';
+import { PartyIcon } from '.';
 
-const Empty = (props) => (<ResourceAbout  icon={RepresentativeIcon} descriptionLabel="logistics.timeline.items.reps.description"  resource="representatives" {...props} />)
+const Empty = (props) => (<ResourceAbout  icon={PartyIcon} resource="party" {...props} />)
 
 
 export const RepresentativeList = (props) => (
@@ -28,7 +28,6 @@ export const RepresentativeList = (props) => (
       <TextField source="profile.fname"  label="fields.fname" sortable={false} />
       <TextField source="profile.lname"  label="fields.lname" sortable={false} />
       <TextField source="profile.position"  label="fields.position" sortable={false} />
-      <TextField source="profile.phone"  label="fields.phone" sortable={false} />
       <EditButton />
     </Datagrid>
 </List>
