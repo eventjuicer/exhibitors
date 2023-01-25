@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Datagrid, TextField, TextInput } from 'react-admin';
+import { List, Datagrid, TextField, TextInput, FunctionField } from 'react-admin';
 
 import InviteButton from './components/InviteButton';
 import { ResourceAbout, ResourceTitle } from '../../components';
@@ -13,6 +13,7 @@ import withLogin from '../withLogin';
 const filters = [
   <TextInput label="pos.search" source="q" alwaysOn />
 ]
+
 
    
 const VisitorList = props => (
@@ -31,7 +32,7 @@ const VisitorList = props => (
     <Datagrid>
       <LinkField source="domain" sortable={false} />
       <TextField source="profile.cname2" sortable={false} />
-      <TextField label="fields.nip" source="profile.nip" sortable={false} />
+   
       <TextField source="profile.fname"  sortable={false} />
       <TextField source="profile.lname"  sortable={false} />
       <TextField label="fields.position" source="profile.position" sortable={false} />
