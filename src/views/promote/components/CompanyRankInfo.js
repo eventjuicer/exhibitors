@@ -19,7 +19,7 @@ import { useSettings } from '../../../contexts'
   }
 });
 
-const CompanyRankInfo = ({setting="", logotype="", sessions = 0, position = 0}) => {
+const CompanyRankInfo = ({setting="promoninja", logotype="", sessions = 0, position = 0}) => {
    
    const classes = useStyles()
    const translate = useTranslate()
