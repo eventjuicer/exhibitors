@@ -293,7 +293,7 @@ const settings = {
                     {
                       label: "vips",
                       icon: RecentActorsIcon,
-                      // check: true,
+                       check: "/checks/vips",
                        edit: "/vips",
                     },
 
