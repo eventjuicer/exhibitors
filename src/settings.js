@@ -32,14 +32,14 @@ const settings = {
     baseLabel: "badgescanner",
     items: [
 
-    {
-      label: "open_scanning_website",
-      image: "https://res.cloudinary.com/eventjuicer/image/upload/v1649365931/www/badgescanner/howto_step_01_signin.png"
-    },
-    {
-      label: "close_scanning_website",
-      image: "https://res.cloudinary.com/eventjuicer/image/upload/v1649365937/www/badgescanner/howto_step_02_ready.png"
-    },
+    // {
+    //   label: "open_scanning_website",
+    //   image: "https://res.cloudinary.com/eventjuicer/image/upload/v1649365931/www/badgescanner/howto_step_01_signin.png"
+    // },
+    // {
+    //   label: "close_scanning_website",
+    //   image: "https://res.cloudinary.com/eventjuicer/image/upload/v1649365937/www/badgescanner/howto_step_02_ready.png"
+    // },
     {
       label: "open_camera_and_shoot",
       image: "https://res.cloudinary.com/eventjuicer/image/upload/v1649365936/www/badgescanner/howto_step_03_openurl.png"
