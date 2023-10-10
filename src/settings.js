@@ -53,7 +53,7 @@ const settings = {
 
   promoninja: {
   //  event_id: 95, //teh 20 - 89, teh21 - 95
-    show_points: true,
+    show_points: false,
 
     banners: [
       {
