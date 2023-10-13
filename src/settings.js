@@ -195,7 +195,7 @@ const settings = {
     {name: "leads", icon: RecentActorsIcon, children: [
       {name: "visitors", visible: false}, 
       {name: "meetups", visible: true}, 
-      {name: "vips", visible: false}, 
+      {name: "vips", visible: true}, 
       {name: "scans", visible: false}, 
     ]},
 
