@@ -3,6 +3,9 @@
 import slugify from 'slugify'
 import isString from 'lodash/isString'
 
+export const isNumeric = (x) => !(isNaN(x)) && (typeof x !== "object") &&
+    (x != Number.POSITIVE_INFINITY) && (x != Number.NEGATIVE_INFINITY)
+
 export const slug = (str = '', replacement = '-') => slugify(str, {
   replacement,
   remove: /[*+~.()'"!:@_\/]/g,
