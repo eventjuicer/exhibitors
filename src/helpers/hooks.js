@@ -1,6 +1,6 @@
 
 import React, {useContext, useCallback} from 'react'
-import { useLocale, DataProviderContext, useNotify, useRedirect, useRefresh, useGetList } from 'react-admin'
+import { useLocale, DataProviderContext, useNotify, useRedirect, useRefresh, useGetList, useDataProvider } from 'react-admin'
 import {useSettings, useToken, useCompany} from '../contexts'
 import { lsSet, lsGet } from './storage'
 import { useLocation, useHistory } from 'react-router-dom' 
@@ -9,6 +9,7 @@ import {validateToken} from './varia'
 // import Link from '../components/Link'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { isString, isFunction, get, isEmpty } from 'lodash'
+import { isNumeric } from './'
 
 export const useIsMobile = (mobileBreakpoint="sm") => {
 
@@ -104,10 +105,14 @@ export const useGet = (path, usePublicApi=false) => {
 }
 
 
-export const useCompanyDataItem = (name) => {
+export const useCompanyDataItem = (name_or_id) => {
 
   const {data, loading, error} = useGet("companydata", false)
-  return (data || []).find(item => item.name == name) || {} 
+  if(isNumeric(name_or_id)){
+    return (data || []).find(item => item.id == name_or_id)
+  }else{
+    return (data || []).find(item => item.name == name_or_id)
+  }
 
 }
 
@@ -177,22 +182,37 @@ export const useUploadFiles = (imageable_type="company") => {
       .then(response => onSuccess && onSuccess(response))
       .catch(error =>  onFailure && onFailure(error))
       , [imageable_type])
-  
+
 }
   
   
   
 export const useOnEdit = (to="/", callback, msg="common.success") => {
 
+
   const notify = useNotify();
   const refresh = useRefresh();
   const redirect = useRedirect();
+  const dataProvider = useDataProvider()
 
-  return React.useCallback(()=>{
+
+  return React.useCallback(async(props)=>{
+
+    const {resource, id} = props;
+    await dataProvider.getOne(resource, {id}).then(({data:{name}}) => {
+
+
+      if(name == "ltd_reject_template"){
+        redirect("/meetups");
+      }else{
+        redirect(to)
+      }
+
+
+    })
 
     refresh();
     notify(msg);
-    redirect(to);
 
     if(isFunction(callback)){
       callback();
