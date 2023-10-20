@@ -17,14 +17,14 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
   
- function CustomAlert({type="warning", label, translationParams={}, children=null, action=null }) {
+ function CustomAlert({type="warning", label, translationParams={}, children=null, action=null, titleLabel=null }) {
     const classes = useStyles();
     const translate = useTranslate()
 
     return (
    
         <Alert severity={type} action={action}>
-        {/* <AlertTitle>{translate(`common.${type}`)}</AlertTitle> */}
+        {titleLabel && <AlertTitle>{translate(titleLabel)}</AlertTitle>}
         <Markdown label={label}>{isString(children)? children: null}</Markdown>
         {!isString(children)? children: null}
         </Alert>
