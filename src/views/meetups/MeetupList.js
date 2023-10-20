@@ -13,7 +13,8 @@ import {
 import {
   P2CMeetupAcceptRejectButtons, 
   ContactDataField,
-  RsvpTypeIcon
+  RsvpTypeIcon,
+  RejectMessageEdit
 } from './components'
 
 import _get from 'lodash/get'
@@ -62,7 +63,7 @@ const ListActions = (props) => (
 
 
 
-const Aside = (props) => <ResourceAbout {...props} showCreate={false} icon={MeetupIcon}  />
+const Aside = (props) => <ResourceAbout {...props} showCreate={false} icon={MeetupIcon} pre={<RejectMessageEdit {...props} />} />
 
 
 const MeetupList = props => (
