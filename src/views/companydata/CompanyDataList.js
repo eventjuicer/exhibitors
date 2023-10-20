@@ -22,7 +22,7 @@ const CustomIterator = () => {
     return null
   }
 
-  const {texts, tags, translatable, links} = fields
+  const {markdown, longtexts, tags, translatable, links} = fields
   
 
   return <Box m={2}>
@@ -35,7 +35,7 @@ const CustomIterator = () => {
   <Grid item xs={12} sm={12} md={10} lg={8} xl={8}>
       
       <CustomTextField name={get("name").name} value={get("name").value} id={get("name").id} />
-      {texts.map(key => <CustomMarkdownField key={key} name={get(key).name} value={get(key).value} id={get(key).id} />)}
+      {markdown.map(key => <CustomMarkdownField key={key} name={get(key).name} value={get(key).value} id={get(key).id} />)}
       {tags.map(key => <CustomTagsField key={key} name={get(key).name}value={get(key).value} id={get(key).id} />)}
       {translatable.map(key => <CustomTranslatableField key={key} name={get(key).name} value={get(key).value} id={get(key).id} />)}
       {links.map(key => <CustomLinkField key={key} name={get(key).name} value={get(key).value} id={get(key).id} />)}

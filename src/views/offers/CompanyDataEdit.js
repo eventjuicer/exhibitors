@@ -38,7 +38,8 @@ const ViewEdit = (props) => {
 
  
 
-  const markdown = useSettings("companydata.texts", [])
+  const markdown = useSettings("companydata.markdown", [])
+  const longtexts = useSettings("companydata.longtexts", [])
   const checkboxes = useSettings("companydata.checkboxes", {})
   const radios = useSettings("companydata.radios", {})
   const authProvider = useAuthProvider();
@@ -61,7 +62,8 @@ const ViewEdit = (props) => {
           source="value"
           // parse={v => v.split('\n').filter(v => v)}
           component={VarTextInput}
-          html={markdown}
+          markdown={markdown}
+          longtexts={longtexts}
           radios={radios}
           uploads={
             ["opengraph_image", "logotype"]

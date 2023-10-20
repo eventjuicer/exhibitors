@@ -36,7 +36,7 @@ const FieldError = ({valid, invalid, error}) => {
   return !valid ? <p className={classes.error}>{error}</p> : null;
 }
 
-const VarTextInput = ({html, radios, checkboxes, uploads, ...props}) => {
+const VarTextInput = ({markdown, longtexts, radios, checkboxes, uploads, ...props}) => {
 
   const {record:{name}, resource} = props;
 
@@ -46,7 +46,7 @@ const VarTextInput = ({html, radios, checkboxes, uploads, ...props}) => {
   
   }
 
-  if(html.includes(name)){
+  if(markdown.includes(name)){
     return  <RaEditor {...props}   />   
 
   }

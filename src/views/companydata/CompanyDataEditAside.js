@@ -5,7 +5,7 @@ import { useSettings } from '../../helpers';
 const Aside = ({record}) => {
 
     const isMobile = useIsMobile()
-    const markdown = useSettings("companydata.texts", [])
+    const markdown = useSettings("companydata.markdown", [])
 
     if(!record){
       return null
