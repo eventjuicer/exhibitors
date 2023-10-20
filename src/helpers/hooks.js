@@ -108,11 +108,14 @@ export const useGet = (path, usePublicApi=false) => {
 export const useCompanyDataItem = (name_or_id) => {
 
   const {data, loading, error} = useGet("companydata", false)
-  if(isNumeric(name_or_id)){
-    return (data || []).find(item => item.id == name_or_id)
-  }else{
-    return (data || []).find(item => item.name == name_or_id)
+
+  if(loading || error || !Array.isArray(data)){
+    return null
   }
+
+  const lookup = isNumeric(name_or_id) ? data.find(item => item.id == name_or_id): data.find(item => item.name == name_or_id)
+ 
+  return lookup || null
 
 }
 

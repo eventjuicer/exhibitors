@@ -14,6 +14,10 @@ const UpdateOpengraphImage = ({enabled=false}) => {
     const company_id = useCompany("id")
     const opengraph = useCompanyDataItem("opengraph_image")
 
+    if(!opengraph){
+        return null;
+    }
+
     if(!company_id || !("id" in opengraph) ){
         return   <Alert label={`resources.promote.opengraph_image.${enabled? "enabled": "disabled"}`} type="info" />
     }

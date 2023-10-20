@@ -44,7 +44,7 @@ const MeetupCreateUserInfo = () => {
 const MeetupCreate = props => {
 
   const params = useSearchParams()
-  const {value} = useCompanyDataItem("invitation_template")
+  const cd = useCompanyDataItem("invitation_template")
   const redirect = useRedirect();
   const refresh = useRefresh();
 
@@ -58,6 +58,12 @@ const MeetupCreate = props => {
     redirect('/meetups');
     refresh()
   }
+
+  if(!cd){
+    return null
+  }
+
+
 
   return (
     <Create title="aor.page.meeting_request" {...props} onSuccess={onSuccess}  >
@@ -77,7 +83,7 @@ const MeetupCreate = props => {
           source="message"
           validate={[required(), minLength(10), maxLength(1000)]}
           style={{ minWidth: 700, maxWidth: 900 }}
-          initialValue={ value||"" }
+          initialValue={ cd.value||"" }
           minRows={10}
         />
   
