@@ -83,7 +83,7 @@ const P2CMeetupAcceptRejectButtons = ({record, resource, ...rest}) => {
                 <Typography className={classNames(classes.gray, {
                     [classes.ltd]: record.direction == "LTD",
                     [classes.p2c]: record.direction == "P2C"
-                })} label={`resources.meetups.${record.direction}`.toLowerCase()} variant="overline" />
+                })} label={`resources.meetups.${record.direction}.buttons`.toLowerCase()} variant="overline" />
                 </Grid>
                 <Grid item>
                 <Button variant="outlined" onClick={() => handleChangeAgreed(1) } label="common.accept" startIcon={ <CheckCircleIcon /> } />
