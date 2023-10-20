@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 
 const P2CMeetupAcceptRejectButtons = ({record, resource, ...rest}) => {
 
-    const {id} = record;
+    const {id} = record || {};
     const refresh = useRefresh();
     const notify = useNotify();
     const classes = useStyles();
