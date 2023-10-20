@@ -43,11 +43,14 @@ const ViewEdit = (props) => {
   const radios = useSettings("companydata.radios", {})
   const authProvider = useAuthProvider();
   const onLogin = useLoginSuccess()
-  const onSuccess = useOnEdit("/companydata", ()=>authProvider.getIdentity().then(data => onLogin(data)))
+  const onSuccess = useOnEdit(
+    "/companydata", 
+    ()=>authProvider.getIdentity().then(data => onLogin(data))
+  )
 
   return (
 
-    <Edit mutationMode="pessimistic" onSuccess={onSuccess} actions={<EditActions />} aside={<CompanyDataEditAside />} title={  <VarLabelTextField {...props} source="name" raw /> } {...props} >
+    <Edit mutationMode="pessimistic" onSuccess={() => onSuccess(props)} actions={<EditActions />} aside={<CompanyDataEditAside />} title={  <VarLabelTextField {...props} source="name" raw /> } {...props} >
   
       <SimpleForm  submitOnEnter={false} validate={validate} toolbar={<EditToolbar />}>
   
