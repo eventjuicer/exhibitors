@@ -122,7 +122,7 @@ const settings = {
   companydata: {
 
     
-    texts: ["about", "products"],
+    texts: ["about", "products", "ltd_reject_template", "ltd_accept_template"],
     links: ["website", "linkedin", "twitter", "facebook"],
     tags: ["keywords"],
     translatable: ["countries"],
