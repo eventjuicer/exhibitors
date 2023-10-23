@@ -228,12 +228,12 @@ export const useOnEdit = (to="/", callback, msg="common.success") => {
 
 export const useMeetups = (direction="C2P", path="participant.id") => {
 
-  const { data, ids, loading, error } = useGetList("meetups");
+  const { data, ids, loading, error } = useGetList("meetups", {page: 1, perPage: 1000}, undefined, direction? {direction}: undefined);
 
   if(loading || error){
     return []
   }
 
-  return Object.values(data).filter(item => direction? item.direction == direction: true).map(item => get(item, path) )
+  return Object.values(data).filter(item => direction? item.direction == direction: true).map(item => path? get(item, path): item )
 }
 
