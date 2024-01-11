@@ -25,7 +25,10 @@ const UrlWatcher = () => {
                 // push(pathname)
                 window.location.reload()
             })
-            .catch(error => notify(translate(error)))
+            .catch(error => {
+                notify("token error")
+                console.log(error)
+            })
         }
 
     }, [token])
