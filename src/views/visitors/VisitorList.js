@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Datagrid, TextField, TextInput, FunctionField } from 'react-admin';
+import { List, Datagrid, TextField, TextInput, SelectInput } from 'react-admin';
 
 import InviteButton from './components/InviteButton';
 import { ResourceAbout, ResourceTitle } from '../../components';
@@ -9,8 +9,26 @@ import VisitorListAside from './components/VisitorListAside';
 import { LinkField } from '../../fields';
 import withLogin from '../withLogin';
 
+const participant_types = [
+    "retailer_wholesaler",
+    "brand_manufacturer",
+    "service_provider",
+    "consultant",
+    "developer",
+    "media",
+    "student"
+]
+
 
 const filters = [
+
+  <SelectInput
+  source="participant_type"
+  allowEmpty
+  choices={participant_types.map(item => ({id: item, name: `resources.visitors.fields.participant_type.options.${item}`}))}
+  alwaysOn
+  />,
+
   <TextInput label="pos.search" source="q" alwaysOn />
 ]
 
