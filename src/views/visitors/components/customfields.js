@@ -37,11 +37,9 @@ const getFullChipLabel = (field, option) => {
 }
 
 
-const LinkedInButton = (record) => {
+const LinkedInButton = ({link=""}) => {
 
   const classes = useStyles()
-
-  let link = get(record, "profile.profile_linkedin", "").trim()
 
   if(!link){
     return null
@@ -61,7 +59,7 @@ export const PersonField = ({record}) => {
 
     if(!record) return null
     
-    return <span className={classes.person}>{`${get(record, "profile.fname")} ${get(record, "profile.lname")}`} <LinkedInButton /></span>
+    return <span className={classes.person}>{`${get(record, "profile.fname")} ${get(record, "profile.lname")}`} <LinkedInButton link={ get(record, "profile.profile_linkedin", "").trim() } /></span>
   
   }
   
