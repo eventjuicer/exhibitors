@@ -2,19 +2,29 @@
 import { get } from '../../../helpers';
 import { Chip } from '../../../components';
 import { LinkedIn } from '@material-ui/icons';
+import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '../../../helpers';
-
 
 const useStyles = makeStyles({
 
-    title: {
+  
+    company: {
         display: 'block',
     },
 
-    chip: {
-    //    display: 'block',
-    //    fontSize: "90%"
-    }
+    position: {
+      display: 'block',
+    },
+
+
+    person: {
+
+    },
+
+  
+    linkedin: {
+    },
+
 
 })
 
@@ -27,13 +37,31 @@ const getFullChipLabel = (field, option) => {
 }
 
 
+const LinkedInButton = (record) => {
 
+  const classes = useStyles()
+
+  let link = get(record, "profile.profile_linkedin", "").trim()
+
+  if(!link){
+    return null
+  }
+
+  if(!link.includes("linkedin.com")){
+    link = `https://www.linkedin.com/in/${link}`
+  }
+
+  return (<IconButton href={link} color="default"><LinkedIn className={classes.linkedin} /></IconButton>)
+
+}
 
 export const PersonField = ({record}) => {
 
+  const classes = useStyles()
+
     if(!record) return null
     
-    return <span>{`${get(record, "profile.fname")} ${get(record, "profile.lname")}`}</span>
+    return <span className={classes.person}>{`${get(record, "profile.fname")} ${get(record, "profile.lname")}`} <LinkedInButton /></span>
   
   }
   
@@ -59,7 +87,7 @@ export const PersonField = ({record}) => {
 
     const pt = get(record, "profile.participant_type", "");
   
-    return (<div><span className={classes.title}>{get(record, "profile.cname2", "").substr(0, 35)}</span>
+    return (<div><span className={classes.company}>{get(record, "profile.cname2", "").substr(0, 35)}</span>
    {pt? <Chip size="small" variant="outlined" className={classes.chip} label={getFullChipLabel("participant_type", pt)} />: null}</div>)
   
   }
