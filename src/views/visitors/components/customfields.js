@@ -7,6 +7,10 @@ import { makeStyles } from '../../../helpers';
 
 const useStyles = makeStyles({
 
+    title: {
+        display: 'block',
+    },
+
     chip: {
        display: 'block',
        fontSize: "90%"
@@ -41,8 +45,8 @@ export const PersonField = ({record}) => {
   
     const cr = get(record, "profile.company_role", "")
 
-    return (<span><span>{get(record, "profile.position", "").substr(0, 35)}</span>
-    {cr? <span className={classes.chip}><Chip label={getFullChipLabel("company_role", cr)}/></span>: null}</span>)
+    return (<div><span className={classes.title}>{get(record, "profile.position", "").substr(0, 35)}</span>
+    {cr? <Chip className={classes.chip} label={getFullChipLabel("company_role", cr)}/>: null}</div>)
   
   }
 
@@ -55,8 +59,8 @@ export const PersonField = ({record}) => {
 
     const pt = get(record, "profile.participant_type", "");
   
-    return (<span><span>{get(record, "profile.cname2", "").substr(0, 35)}</span>
-    <span className={classes.chip}>{pt? <Chip label={getFullChipLabel("participant_type", pt)} />: null}</span></span>)
+    return (<div><span className={classes.title}>{get(record, "profile.cname2", "").substr(0, 35)}</span>
+   {pt? <Chip className={classes.chip} label={getFullChipLabel("participant_type", pt)} />: null}</div>)
   
   }
 
