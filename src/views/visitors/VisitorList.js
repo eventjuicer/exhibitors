@@ -1,61 +1,23 @@
 import React from 'react';
-import { List, Datagrid, TextField, TextInput, SelectInput } from 'react-admin';
-
-import InviteButton from './components/InviteButton';
-import { ResourceAbout, ResourceTitle } from '../../components';
-//import Actions from './ListActions';
+import { List, Datagrid, TextField } from 'react-admin';
+import { ResourceTitle } from '../../components';
 import {LimitsContextProvider, useLimit} from '../../contexts'
-import VisitorListAside from './components/VisitorListAside';
 import { LinkField } from '../../fields';
 import withLogin from '../withLogin';
-
-const participant_types = [
-    "retailer_wholesaler",
-    "brand_manufacturer",
-    "service_provider",
-    "consultant",
-    "developer",
-    "media",
-    "student"
-]
-
-const company_roles = [
-  "student",
-  "entry",
-  "manager",
-  "professional",
-  "head_of_department",
-  "director",
-  "c_level",
-  "board_member",
-  "other"
-]
-
-
-const filters = [
+import { 
+  PersonField, 
+  PositionField,
+  CompanyField,
+  InviteButton,
+  VisitorListAside,
+  filters
+} from './components';
 
 
 
-  <SelectInput
-  source="participant_type"
-  allowEmpty
-  choices={participant_types.map(item => ({id: item, name: `resources.visitors.fields.participant_type.options.${item}`}))}
-  alwaysOn
-  />,
 
-  <SelectInput
-  source="company_role"
-  allowEmpty
-  choices={company_roles.map(item => ({id: item, name: `resources.visitors.fields.company_role.options.${item}`}))}
-  alwaysOn
-  />,
-  
+<TextField label="fields.position" source="profile.position" sortable={false} />
 
-  <TextInput label="pos.search" source="q" alwaysOn />
-]
-
-
-   
 const VisitorList = props => (
   <LimitsContextProvider>
   <List
@@ -71,11 +33,14 @@ const VisitorList = props => (
   >
     <Datagrid>
       <LinkField source="domain" sortable={false} />
-      <TextField source="profile.cname2" sortable={false} />
+
+
+      <CompanyField label="Company" sortable={false} />
    
-      <TextField source="profile.fname"  sortable={false} />
-      <TextField source="profile.lname"  sortable={false} />
-      <TextField label="fields.position" source="profile.position" sortable={false} />
+      <PersonField label="Person"  sortable={false}/> 
+      
+      <PositionField label="Position"   sortable={false}/>
+
       <InviteButton />
     </Datagrid>
   </List>
