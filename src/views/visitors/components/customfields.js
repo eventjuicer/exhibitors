@@ -1,14 +1,29 @@
 
 import { get } from '../../../helpers';
 import { Chip } from '../../../components';
+import { LinkedIn } from '@material-ui/icons';
+import { makeStyles } from '../../../helpers';
 
-const getFullName = (field, option) => {
+
+const useStyles = makeStyles({
+
+    chip: {
+       display: 'block',
+       fontSize: "90%"
+    }
+
+})
+
+const getFullChipLabel = (field, option) => {
 
     if(!field || !option) return ""
 
     return  `resources.visitors.fields.${field}.options.${option}`
 
 }
+
+
+
 
 export const PersonField = ({record}) => {
 
@@ -20,24 +35,28 @@ export const PersonField = ({record}) => {
   
   export const PositionField = ({record}) => {
       
+    const classes = useStyles()
+
     if(!record) return null
   
     const cr = get(record, "profile.company_role", "")
 
     return (<span><span>{get(record, "profile.position", "").substr(0, 35)}</span>
-    {cr? <span><Chip label={getFullName("company_role", cr)}/></span>: null}</span>)
+    {cr? <span className={classes.chip}><Chip label={getFullChipLabel("company_role", cr)}/></span>: null}</span>)
   
   }
 
 
   export const CompanyField = ({record}) => {
     
+    const classes = useStyles()
+
     if(!record) return null
 
     const pt = get(record, "profile.participant_type", "");
   
     return (<span><span>{get(record, "profile.cname2", "").substr(0, 35)}</span>
-    <span>{pt? <Chip label={getFullName("participant_type", pt)} />: null}</span></span>)
+    <span className={classes.chip}>{pt? <Chip label={getFullChipLabel("participant_type", pt)} />: null}</span></span>)
   
   }
 
