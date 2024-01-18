@@ -51,7 +51,7 @@ const LinkedInButton = (record) => {
     link = `https://www.linkedin.com/in/${link}`
   }
 
-  return (<IconButton href={link} color="default"><LinkedIn className={classes.linkedin} /></IconButton>)
+  return (<IconButton href={link} target="_blank" color="default"><LinkedIn className={classes.linkedin} /></IconButton>)
 
 }
 
