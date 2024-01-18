@@ -12,8 +12,8 @@ const useStyles = makeStyles({
     },
 
     chip: {
-       display: 'block',
-       fontSize: "90%"
+    //    display: 'block',
+    //    fontSize: "90%"
     }
 
 })
@@ -46,7 +46,7 @@ export const PersonField = ({record}) => {
     const cr = get(record, "profile.company_role", "")
 
     return (<div><span className={classes.title}>{get(record, "profile.position", "").substr(0, 35)}</span>
-    {cr? <Chip className={classes.chip} label={getFullChipLabel("company_role", cr)}/>: null}</div>)
+    {cr? <Chip size="small" variant="outlined" className={classes.chip} label={getFullChipLabel("company_role", cr)}/>: null}</div>)
   
   }
 
@@ -60,7 +60,7 @@ export const PersonField = ({record}) => {
     const pt = get(record, "profile.participant_type", "");
   
     return (<div><span className={classes.title}>{get(record, "profile.cname2", "").substr(0, 35)}</span>
-   {pt? <Chip className={classes.chip} label={getFullChipLabel("participant_type", pt)} />: null}</div>)
+   {pt? <Chip size="small" variant="outlined" className={classes.chip} label={getFullChipLabel("participant_type", pt)} />: null}</div>)
   
   }
 
