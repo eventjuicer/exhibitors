@@ -71,7 +71,7 @@ export const PersonField = ({record}) => {
   
     const cr = get(record, "profile.company_role", "")
 
-    return (<div><span className={classes.title}>{get(record, "profile.position", "").substr(0, 35)}</span>
+    return (<div><span className={classes.position}>{get(record, "profile.position", "").substr(0, 35)}</span>
     {cr? <Chip size="small" variant="outlined" className={classes.chip} label={getFullChipLabel("company_role", cr)}/>: null}</div>)
   
   }
