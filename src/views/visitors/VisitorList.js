@@ -23,6 +23,9 @@ const VisitorList = props => (
   <List
     {...props}
     filters={ filters }
+    filterDefaultValues={{
+      participant_type: "retailer_wholesaler"
+    }}
     sort={{ field: 'id', order: 'DESC' }}
     perPage={50}
     title={ <ResourceTitle {...props} />}
