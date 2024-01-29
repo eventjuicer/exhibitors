@@ -35,12 +35,12 @@ const filters = [
   alwaysOn
   />,
 
-  <SelectInput
-  source="company_role"
-  allowEmpty
-  choices={company_roles.map(item => ({id: item, name: `resources.visitors.fields.company_role.options.${item}`}))}
-  alwaysOn
-  />,
+  // <SelectInput
+  // source="company_role"
+  // allowEmpty
+  // choices={company_roles.map(item => ({id: item, name: `resources.visitors.fields.company_role.options.${item}`}))}
+  // alwaysOn
+  // />,
   
 
   <TextInput label="pos.search" source="q" alwaysOn />
