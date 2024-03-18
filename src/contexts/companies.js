@@ -22,8 +22,8 @@ export const usePublicCompanyData = () => {
     const {data} = useGet(company_id? `/companies/${company_id}`: null, true)
 
 
-    const purchases = get(data, 'instances', []).filter(p => parseInt(p.sold));
-    const booths = purchases.filter(p => "role" in p.ticket && p.ticket.role == "exhibitor")
+    const purchases = get(data, 'instances', [])
+    const booths = purchases.filter(p => "role" in p && p.role == "exhibitor")
 
     const boothIds = map(booths, 'formdata.id').filter(v => v && v.length);
     const boothNames = map(booths, 'formdata.ti').filter(v => v && v.length);  
