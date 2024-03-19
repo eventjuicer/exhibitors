@@ -20,7 +20,8 @@ import {
   Scanner as BarcodeScan,
   VolumeUp,
   Receipt as Newspaper,
-  AttachMoney as SquareIncCash
+  AttachMoney as SquareIncCash,
+  Star
 } from '@material-ui/icons'
 
 import {
@@ -41,6 +42,7 @@ const styles = {
 }
 
 const Icons = {
+  brochure: Star,
   presentation : Microphone,
   video_interview : Video,
   brand_highlight : Eye,
