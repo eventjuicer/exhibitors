@@ -16,7 +16,7 @@ import {
 
 
 
-<TextField label="fields.position" source="profile.position" sortable={false} />
+{/* <TextField label="fields.position" source="profile.position" sortable={false} /> */}
 
 const VisitorList = props => (
   <LimitsContextProvider>
@@ -24,7 +24,7 @@ const VisitorList = props => (
     {...props}
     filters={ filters }
     filterDefaultValues={{
-      participant_type: "retailer_wholesaler"
+      // participant_type: "retailer_wholesaler"
     }}
     sort={{ field: 'id', order: 'DESC' }}
     perPage={50}

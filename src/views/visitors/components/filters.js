@@ -28,12 +28,12 @@ const filters = [
 
 
 
-  <SelectInput
-  source="participant_type"
-  allowEmpty
-  choices={participant_types.map(item => ({id: item, name: `resources.visitors.fields.participant_type.options.${item}`}))}
-  alwaysOn
-  />,
+  // <SelectInput
+  // source="participant_type"
+  // allowEmpty
+  // choices={participant_types.map(item => ({id: item, name: `resources.visitors.fields.participant_type.options.${item}`}))}
+  // alwaysOn
+  // />,
 
   // <SelectInput
   // source="company_role"
