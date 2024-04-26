@@ -187,23 +187,23 @@ const settings = {
     ]},
     {name: "event", icon: BuildIcon, children: [
       {name: "logistics", visible: true}, 
-      {name: "representatives", visible: true}, 
-      {name: "arrangement", visible: true}, 
-      {name: "vouchers", visible: true}, 
+      {name: "representatives", visible: false}, 
+      {name: "arrangement", visible: false}, 
+      {name: "vouchers", visible: false}, 
       {name: "register/party", visible: false}, 
     ]},
 
     {name: "leads", icon: RecentActorsIcon, children: [
-      {name: "visitors", visible: true}, 
-      {name: "meetups", visible: true}, 
-      {name: "vips", visible: true}, 
-      {name: "scans", visible: true}, 
+      {name: "visitors", visible: false}, 
+      {name: "meetups", visible: false}, 
+      {name: "vips", visible: false}, 
+      {name: "scans", visible: false}, 
     ]},
 
     {name: "promo", icon: VolumeUpIcon, children: [
       {name: "premium", visible: true}, 
-      {name: "ranking", visible: true}, 
-      {name: "promote", visible: true}, 
+      {name: "ranking", visible: false}, 
+      {name: "promote", visible: false}, 
       {name: "posts", visible: false}, 
     ]},
 
