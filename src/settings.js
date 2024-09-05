@@ -188,7 +188,7 @@ const settings = {
     {name: "event", icon: BuildIcon, children: [
       {name: "logistics", visible: true}, 
       {name: "representatives", visible: false}, 
-      {name: "arrangement", visible: false}, 
+      {name: "arrangement", visible: true}, 
       {name: "vouchers", visible: false}, 
       {name: "register/party", visible: false}, 
     ]},
