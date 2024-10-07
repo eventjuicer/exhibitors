@@ -10,19 +10,7 @@ import Warning from '@material-ui/icons/Warning';
 // import IconReward from '@material-ui/icons/info';
 
 import { translate } from 'react-admin';
-
-import {
-  Mic as Microphone,
-  Movie as Video,
-  Visibility as Eye,
-  Receipt as Ticket,
-  Event as Calendar,
-  Scanner as BarcodeScan,
-  VolumeUp,
-  Receipt as Newspaper,
-  AttachMoney as SquareIncCash,
-  Star
-} from '@material-ui/icons'
+import * as Icons from './icons'
 
 import {
   success,
@@ -42,16 +30,17 @@ const styles = {
 }
 
 const Icons = {
-  brochure: Star,
-  presentation : Microphone,
-  video_interview : Video,
-  brand_highlight : Eye,
-  leaflets : Ticket,
-  meetups : Calendar,
-  scanner : BarcodeScan,
-  rollups : VolumeUp,
-  blog : Newspaper,
-  earlybird : SquareIncCash
+  brochure: Icons.Brochure,
+  brochure_ad: Icons.BrochureAd,
+  presentation : Icons.Presentation,
+  video_interview : Icons.Interview,
+  brand_highlight : Icons.Highlight,
+  leaflets : Icons.Leaflets,
+  meetups : Icons.Meetups,
+  scanner : Icons.Scanner,
+  rollups : Icons.Rollups,
+  blog : Icons.Blog,
+  earlybird : Icons.Earlybird
 }
 
 const rewarded = (prize, position, sessions) => {

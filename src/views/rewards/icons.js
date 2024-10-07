@@ -13,5 +13,23 @@ export {default as Scanner} from '@material-ui/icons/MobileFriendly';
 export {default as Floor} from '@material-ui/icons/Texture';
 export {default as Vips} from '@material-ui/icons/LocalCafe';
 export {default as Brochure} from '@material-ui/icons/Star';
+export {default as BrochureAd} from '@material-ui/icons/MenuBook';
 
 
+
+/**
+ * 
+ * import {
+ 
+  Movie as Video,
+  Visibility as Eye,
+  Receipt as Ticket,
+  Event as Calendar,
+  Scanner as BarcodeScan,
+  VolumeUp,
+  Receipt as Newspaper,
+  AttachMoney as SquareIncCash,
+  Star
+} from '@material-ui/icons'
+
+ */
