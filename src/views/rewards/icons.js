@@ -13,7 +13,7 @@ export {default as Scanner} from '@material-ui/icons/MobileFriendly';
 export {default as Floor} from '@material-ui/icons/Texture';
 export {default as Vips} from '@material-ui/icons/LocalCafe';
 export {default as Brochure} from '@material-ui/icons/Star';
-export {default as BrochureAd} from '@material-ui/icons/MenuBook';
+export {default as Brochure_ad} from '@material-ui/icons/MenuBook';
 
 
 
