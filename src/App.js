@@ -14,7 +14,6 @@ import Logistics from './views/logistics'
 import resourcesArr from './resources'
 import settings from './settings'
 
-
 const CustomLayout = (props) => {
 
   return (
@@ -27,8 +26,6 @@ const CustomLayout = (props) => {
     <SvgDesaturate />
   
     </ModalContext>
-
-
 )
 
 }
@@ -55,6 +52,10 @@ function App() {
           <CustomAdminUI />
         </CacheContext>
       </UserContext>
+
+      <chatlio-widget widgetid={`process.env.REACT_APP_CHATLIO`}></chatlio-widget>
+
+
     </SettingsContext>
     </AdminContext>
   );
