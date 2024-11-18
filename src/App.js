@@ -13,6 +13,7 @@ import {Dialog, SvgDesaturate, UrlWatcher, CheckIfCompanyLangIsSet} from './comp
 import Logistics from './views/logistics'
 import resourcesArr from './resources'
 import settings from './settings'
+import Chatlio from './services/Chatlio';
 
 const CustomLayout = (props) => {
 
@@ -53,8 +54,9 @@ function App() {
         </CacheContext>
       </UserContext>
 
-      <chatlio-widget widgetid={`process.env.REACT_APP_CHATLIO`}></chatlio-widget>
-
+    <Chatlio />
+      <chatlio-widget widgetid={`${process.env.REACT_APP_CHATLIO}`}></chatlio-widget>
+      
 
     </SettingsContext>
     </AdminContext>
