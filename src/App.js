@@ -55,7 +55,6 @@ function App() {
       </UserContext>
 
     <Chatlio />
-      <chatlio-widget widgetid={`${process.env.REACT_APP_CHATLIO}`}></chatlio-widget>
       
 
     </SettingsContext>

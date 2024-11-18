@@ -32,7 +32,8 @@ class Chatlio extends React.Component {
   };
 
   render() {
-    return null;
+    return (<chatlio-widget widgetid={`${process.env.REACT_APP_CHATLIO}`}></chatlio-widget>)
+    
   }
 }
 
