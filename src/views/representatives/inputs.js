@@ -52,8 +52,8 @@ const fields = [
   <SelectInput
     key="hidden"
     source="profile.unsubscribed"
-    label="Keep me hidden"
-    helperText="By selecting 'Keep Me Hidden', your personal information will be removed from the attendee list, and neither you nor others will be able to connect through the matchmaking tool."
+    label="Matchmaking tool access"
+    helperText="By selecting 'Yes, hide me.', your personal information will be removed from the attendee list, and neither you nor others will be able to connect through our matchmaking tool."
     choices={[
         { id: 0, name: 'No, show me.' },
         { id: 1, name: 'Yes, hide me.' }
