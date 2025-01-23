@@ -53,10 +53,10 @@ const fields = [
     key="hidden"
     source="profile.unsubscribed"
     label="Matchmaking tool access"
-    helperText="By selecting 'Yes, hide me.', your personal information will be removed from the attendee list, and neither you nor others will be able to connect through our matchmaking tool."
+    helperText="By selecting 'Hidden', your personal information will be removed from the attendee list, and neither you nor others will be able to connect through our matchmaking tool."
     choices={[
-        { id: 0, name: 'No, show me.' },
-        { id: 1, name: 'Yes, hide me.' }
+        { id: 0, name: 'Visible' },
+        { id: 1, name: 'Hidden' }
     ]}
     defaultValue={0}
   />
