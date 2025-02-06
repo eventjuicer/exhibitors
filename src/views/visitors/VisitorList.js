@@ -12,11 +12,42 @@ import {
   VisitorListAside,
   filters
 } from './components';
-
-
+import {useTranslate} from 'react-admin';
+import { Link } from 'react-router-dom';
 
 
 {/* <TextField label="fields.position" source="profile.position" sortable={false} /> */}
+
+export default function VisitorListMoved({basePath = ''}) {
+  const translate = useTranslate()
+
+  return (
+    <div style={{ 
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      padding: '20px',
+    }}>
+      <h2 style={{marginBottom: '20px'}}>{translate('resources.visitors.wtf-happened-here.title')}</h2>
+      <p>{translate('resources.visitors.wtf-happened-here.description')} <Link to="/representatives">{translate('resources.visitors.wtf-happened-here.link')}</Link></p>
+      
+      <div style={{ width: '70%', marginTop: '20px', paddingBottom: '100px'}}>
+        <img 
+          src={'/app_access.png'} 
+          alt="visitors-moved" 
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain'
+          }}
+        />
+      </div>
+    </div>
+  )
+}
+
 
 const VisitorList = props => (
   <LimitsContextProvider>
@@ -50,4 +81,4 @@ const VisitorList = props => (
   </LimitsContextProvider>
 );
 
-export default withLogin(VisitorList, <VisitorListAside aside={ false } />);
+// export default withLogin(VisitorList, <VisitorListAside aside={ false } />);

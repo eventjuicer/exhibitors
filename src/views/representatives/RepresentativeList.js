@@ -14,8 +14,26 @@ import withLogin from '../withLogin';
 import { ResourceAbout, ResourceTitle} from '../../components'
 import { RepresentativeIcon } from '.';
 import FullNameField from './FullNameField';
+import CopyToClipboardButton from '../../components/CopyToClipboardButton';
+
 
 const Empty = (props) => (<ResourceAbout  icon={RepresentativeIcon} descriptionLabel="logistics.timeline.items.reps.description"  resource="representatives" {...props} />)
+
+const AccessButton = () => {
+
+  const record = useRecordContext();
+  if (!record) return null;
+
+  const magicLink = `https://${record.organizer_id> 1? "ecomm.berlin": "ecwe.pl"}/recall/${record.token}?goto=/people`
+
+  return (
+    <CopyToClipboardButton text={magicLink}  size="small"
+    variant="outlined" 
+    label="actions.magic-link"
+    />
+  )
+}
+
 
 const VisibilityField = () => {
     const record = useRecordContext();
@@ -42,6 +60,7 @@ export const RepresentativeList = (props) => (
       <TextField source="profile.position" label="fields.position" sortable={false} />
       <TextField source="profile.phone" label="fields.phone" sortable={false} />
       <VisibilityField source="profile.unsubscribed" label="Visibility" sortable={false} />
+      <AccessButton source="token" label="Invitations" sortable={false} />
       <EditButton />
     </Datagrid>
 </List>

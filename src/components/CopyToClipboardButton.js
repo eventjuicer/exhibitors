@@ -7,6 +7,7 @@ import Button from './Button'
 const CopyToClipboardButton = ({
   label="common.copy-to-clipboard",
   text="props.text",
+  addIcon=true,
   ...rest
 }) => {
 
@@ -17,7 +18,8 @@ const CopyToClipboardButton = ({
       text={text}
       onCopy={() =>  notify("actions.copied") }
     >
-     <Button label={label} startIcon={ <FileCopy /> } {...rest} />
+      
+     <Button label={label} startIcon={addIcon? <FileCopy fontSize="small" /> : null} {...rest} />
     </CopyToClipboard>
   );
 }
