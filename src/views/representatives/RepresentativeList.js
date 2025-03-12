@@ -15,14 +15,15 @@ import { ResourceAbout, ResourceTitle} from '../../components'
 import { RepresentativeIcon } from '.';
 import FullNameField from './FullNameField';
 import CopyToClipboardButton from '../../components/CopyToClipboardButton';
-
+import { useSettings } from '../../contexts';
 
 const Empty = (props) => (<ResourceAbout  icon={RepresentativeIcon} descriptionLabel="logistics.timeline.items.reps.description"  resource="representatives" {...props} />)
 
 const AccessButton = () => {
 
+  const {hideMagicLink} = useSettings("representatives");
   const record = useRecordContext();
-  if (!record) return null;
+  if (!record || hideMagicLink) return null;
 
   const magicLink = `https://${record.organizer_id> 1? "ecomm.berlin": "ecwe.pl"}/recall/${record.token}?goto=/people`
 
