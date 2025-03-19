@@ -19,7 +19,7 @@ const settings = {
 
   representatives: {
 
-    hideMagicLink: true
+    hideMagicLink: false
 
   },
 
