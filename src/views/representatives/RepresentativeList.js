@@ -25,7 +25,7 @@ const AccessButton = () => {
   const record = useRecordContext();
   if (!record || hideMagicLink) return null;
 
-  const magicLink = `https://${record.organizer_id> 1? "ecomm.berlin": "ecwe.pl"}/recall/${record.token}?goto=/people`
+  const magicLink = `https://${record.organizer_id> 1? "ecomm.berlin": "ecwe.pl"}/recall/${record.token}?goto=/vipcodes`
 
   return (
     <CopyToClipboardButton text={magicLink}  size="small"
