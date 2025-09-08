@@ -204,14 +204,14 @@ const settings = {
     {name: "leads", icon: RecentActorsIcon, children: [
       {name: "visitors", visible: false}, 
       {name: "meetups", visible: false}, 
-      {name: "vips", visible: true}, 
-      {name: "scans", visible: true}, 
+      {name: "vips", visible: false}, 
+      {name: "scans", visible: false}, 
     ]},
 
     {name: "promo", icon: VolumeUpIcon, children: [
       {name: "premium", visible: true}, 
-      {name: "ranking", visible: true}, 
-      {name: "promote", visible: true}, 
+      {name: "ranking", visible: false}, 
+      {name: "promote", visible: false}, 
       {name: "posts", visible: false}, 
     ]},
 
