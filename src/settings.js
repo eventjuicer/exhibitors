@@ -66,61 +66,61 @@ const settings = {
     banners: [
       {
         name: "twitter/linkedin/facebook 1920x1080",
-        asset_id:  "teh27/teh_fb_tt_li",
-        text_xy: [80, 80],
-        text_size: 150,
-        text_gravity: "south_east",
-        text_color: "#000"
+        asset_id:  "ecwe28/teh_fb_tt_li",
+        // text_xy: [80, 80],
+        // text_size: 150,
+        // text_gravity: "south_east",
+        // text_color: "#000"
       },
       {
         name: "instagram 1080x1080",
-        asset_id:  "teh27/teh_instagram",
-        text_xy: [70, 70],
-        text_size: 120,
-        text_gravity: "south_east",
-        text_color: "#000"
+        asset_id:  "ecwe28/teh_instagram",
+        // text_xy: [70, 70],
+        // text_size: 120,
+        // text_gravity: "south_east",
+        // text_color: "#000"
       },
       
       {
         name: "468x60",
-        asset_id:  "teh27/teh_banner_468x60",
-        text_xy: [30, 12],
-        text_size: 25,
-        text_gravity: "south_east",
-        text_color: "#000"
+        asset_id:  "ecwe28/teh_banner_468x60",
+        // text_xy: [30, 12],
+        // text_size: 25,
+        // text_gravity: "south_east",
+        // text_color: "#000"
       },
       {
         name: "336x280",
-        asset_id:  "teh27/teh_banner_336x280",
-        text_xy: [40, 22],
-        text_size: 50,
-        text_gravity: "south_east",
-        text_color: "#000"
+        asset_id:  "ecwe28/teh_banner_336x280",
+        // text_xy: [40, 22],
+        // text_size: 50,
+        // text_gravity: "south_east",
+        // text_color: "#000"
       },
       {
         name: "300x250",
-        asset_id:  "teh27/teh_banner_300x250",
-        text_xy: [20, 20],
-        text_size: 25,
-        text_gravity: "south_east",
-        text_color: "#000"
+        asset_id:  "ecwe28/teh_banner_300x250",
+        // text_xy: [20, 20],
+        // text_size: 25,
+        // text_gravity: "south_east",
+        // text_color: "#000"
       },
     
       {
         name: "728x90",
-        asset_id:   "teh27/teh_banner_728x90",
-        text_xy: [55, 15],
-        text_size: 35,
-        text_gravity: "south_east",
-        text_color: "#000"
+        asset_id:   "ecwe28/teh_banner_728x90",
+        // text_xy: [55, 15],
+        // text_size: 35,
+        // text_gravity: "south_east",
+        // text_color: "#000"
       },
       {
         name: "250x250", 
-        asset_id:   "teh27/teh_banner_250x250",
-        text_xy: [20, 17],
-        text_size: 30,
-        text_gravity: "south_east",
-        text_color: "#000"
+        asset_id:   "ecwe28/teh_banner_250x250",
+        // text_xy: [20, 17],
+        // text_size: 30,
+        // text_gravity: "south_east",
+        // text_color: "#000"
       }
     ]
 
@@ -203,7 +203,7 @@ const settings = {
 
     {name: "leads", icon: RecentActorsIcon, children: [
       {name: "visitors", visible: false}, 
-      {name: "meetups", visible: false}, 
+      {name: "meetups", visible: true}, 
       {name: "vips", visible: false}, 
       {name: "scans", visible: false}, 
     ]},

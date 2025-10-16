@@ -25,6 +25,7 @@ export const cloudinaryAddText = ({asset_id, content="test", height, width, text
     const myImage = createCloudinaryInstance().image(asset_id);
     const [x,y] = text_xy
     
+    if(content && text_gravity && text_xy && text_size){
     myImage.overlay(
       source(
         text(content, new TextStyle('Arial', text_size)
@@ -33,6 +34,7 @@ export const cloudinaryAddText = ({asset_id, content="test", height, width, text
       )
       .position(new Position().gravity(compass(text_gravity)).offsetX(x).offsetY(y)) 
     )
+  }
 
 
 
