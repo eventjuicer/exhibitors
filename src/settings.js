@@ -19,7 +19,7 @@ const settings = {
 
   representatives: {
 
-    hideMagicLink: true
+    hideMagicLink: false
 
   },
 
@@ -203,7 +203,7 @@ const settings = {
 
     {name: "leads", icon: RecentActorsIcon, children: [
       {name: "visitors", visible: false}, 
-      {name: "meetups", visible: true}, 
+      {name: "meetups", visible: false}, 
       {name: "vips", visible: false}, 
       {name: "scans", visible: false}, 
     ]},
