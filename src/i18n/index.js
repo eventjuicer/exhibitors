@@ -18,7 +18,7 @@ export const i18nProvider = polyglotI18nProvider((locale) => {
   }
 
   return new Promise((resolve, reject)=>{
-    const translations = lsGet("translations")
+    const translations = lsGet("translations", {})
     const merged =  {...defaulTranslations[locale], ...translations[locale]}
     resolve(merged)
 
@@ -49,7 +49,7 @@ export const useTranslations = () => {
 
         let isCancelled = false
 
-        const fetchAndSaveTranslations = async() => fetchUtils.fetchJson(proxy.includes("https")? `${proxy}${encodeURIComponent(localise)}`: localise).then(response => response.json).then(translations => {
+        const fetchAndSaveTranslations = async() => await fetchUtils.fetchJson(proxy.includes("https")? `${proxy}${encodeURIComponent(localise)}`: localise).then(response => response.json).then(translations => {
           if(!isCancelled){
             lsSet("translations", translations)
             lsSet("translations_loaded", timestamp())
@@ -58,17 +58,18 @@ export const useTranslations = () => {
           }
         })
 
-        if(timestamp()-lsGet("translations_loaded")>3600){
-          //refresh translations?
+        if(timestamp()-lsGet("translations_loaded", 0)>3600){
+          fetchAndSaveTranslations()
+        } else {
+          // translations are cached and fresh, just set loaded and locale
+          setTranslationsLoaded(true);
+          setLocale(getLocale())
         }
-        
 
-        fetchAndSaveTranslations();
-     
         return () => {
           isCancelled = true;
         }
-      }, [])
+      }, [proxy, localise, setLocale])
 
   return translationsLoaded
 
